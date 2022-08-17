@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audiophile</title>
+    <link rel="stylesheet" href="{% static 'commerce/product.css'%}">
+    <script src="{% static 'commerce/product.js' %}"></script>
+    <script src="{% static 'commerce/prod.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="shadow"></div>
+        <header>
+            <!-- topnav -->
+            <div class="top_nav">
+                <div class="top-left">
+                    <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+                </div>
+                <div class="top-center">
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'headphones' %}">Headphones</a></li>
+                            <li><a href="{% url 'speaker' %}">Speakers</a></li>
+                            <li><a href="{% url 'earphones' %}">Earphones</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="top-right">
+                    <img data-name="{{product.Product_Name}}" id="cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+                    <sup id="sup">{{User_cart.Cart.count}}</sup>
+                </div>
+            </div>
+      <!-- mobile_nav -->
+      <div style="transition: all 0.3s ease-in">
+        <div class="mobile-top-nav">
+          {% if request.user.is_authenticated %}
+            <div class="mobile-top-nav-left">
+              <img style="cursor: pointer;" id="mobile_cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+              <sup id="mobilesup">{{User_cart.Cart.count}}</sup>
+            </div>
+          {% endif %}
+          <div class="mobile-top-nav-center">
+            <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+          </div>
+          <div class="mobile-top-nav-right">
+            <img style="cursor: pointer;" id="hamburger" src="{% static 'commerce/images/icon-hamburger.svg' %}" alt="">
+            <img style="cursor: pointer;" id="close" src="{% static 'commerce/images/icon-navclose.svg' %}" alt="">
+          </div>
+        </div>
+        <!-- mobile navbar links -->
+        <div class="mobile_nav_link">
+          <div>
+            <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+            <h3>Headphones</h3>
+            <a href="{% url 'headphones' %}">
+              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+            </a>
+          </div>
+          <div>
+            <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+            <h3>Speakers</h3>
+            <a href="{% url 'speaker' %}">
+              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+            </a>
+          </div>
+          <div>
+            <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+            <h3>Earphones</h3>
+            <a href="{% url 'earphones' %}">
+              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+            </a>
+          </div>
+        </div>
+      </div>
+        </header>
+        <div id="cart">
+                <div class="topp">
+                    <img height="20px" id="closecart" src="{% static 'commerce/images/icon-close.svg' %}" alt="">
+                </div>
+                <div class="bottom">
+                    <div class="one">
+                        <h2>Cart(<span id="supp"></span>)</h2>
+                        <form action="{% url 'product' product.Product_Name %}" method="POST">
+                            {% csrf_token %}
+                            <input name="removeall" type="submit" value="Remove all">
+                        </form>
+                    </div>
+                    <div class="two">
+                        <div style="width: 100%" id="two_1">
+                            {% for cartinfos in cartinfo %}
+                                <div style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 0.5em" id="two_11">
+                                    <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
+                                        <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
+                                    </div>
+                                    <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.FinalCount}}</span> <span style="display: none" data-initialPrice = "{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductName.Amount}}</span> </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="three">
+                      <div>Total</div>
+                      <div >$<span id="total"></span></div>
+                    </div>
+                </div>
+                <div id="checkout">
+                    <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>  
+                </div>
+        </div>
+        <main>
+            <div class="top">
+                <div class="top-left">
+                    <img src="{{product.Product_Image.url}}" alt="">
+                </div>
+                <div class="top-right">
+                    <h1 data-name="{{product.Product_Name}}" id="productname">{{product.Product_Name}}</h1>
+                    <p>{{product.Product_Description}}</p>
+                    <b>${{product.Amount}}</b>
+                    <div class="add">
+                        <div id="cardadd">
+                            <div>
+                                <button data-name="{{product.Product_Name}}" id="subtract">-
+                                </button>
+                                <p id="number"></p>
+                                <button data-name="{{product.Product_Name}}" id="add">+</button>
+                            </div>
+                        </div>
+                        <div id="add2">
+                            {% if product in Check_cart %}
+                                <button data-name="{{product.Product_Name}}" id="addtocart">REMOVE FROM CART</button>
+                            {% else %}
+                                <button data-name="{{product.Product_Name}}" id="addtocart">ADD TO CART</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="features">
+                    <h3>FEATURES</h3>
+                    <p>{{product.Product_Features}}</p>
+                </div>
+                <div class="box">
+                    <h3>IN THE BOX</h3>
+                    <p><span>1x</span> Lorem, ipsum dolor.</p>
+                    <p><span>2x</span> Lorem, ipsum dolor.</p>
+                    <p><span>1x</span> Lorem, ipsum dolor.</p>
+                    <p><span>3x</span> Lorem, ipsum dolor.</p>
+
+                </div>
+            </div>
+            <div st class="sub">
+                <div style="background-image: url('{{product.SideImage_1.url}}')" class="sub_1"></div>
+                <div style="background-image: url(' {{product.SideImage_2.url}}')" class="sub_2"></div>
+                <div style="background-image: url('{{product.SideImage_3.url}}')" class="sub_3"></div>
+            </div>
+
+            <div class="others">  
+                <h4>YOU MAY ALSO LIKE</h4>
+                <div class="others_list">
+                    {% for other in others %}
+                        <div>
+                            <img src="{{other.Product_Image.url}}" alt="">
+                            <div class="info">
+                                <h3>{{other.Title}}</h3>
+                                <button><a href="{% url 'product' other.Product_Name %}">SEE PRODUCT</a></button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="top-mid">
+                <div>
+                    <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+                    <h3>Headphones</h3>
+                    <a href="{% url 'headphones'%}">
+                        <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+                    </a>
+                </div>
+                <div>
+                    <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+                    <h3>Speakers</h3>
+                    <a href="{% url 'speaker' %}">
+                        <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+                    </a>
+                </div>
+                <div>
+                    <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+                    <h3>Earphones</h3>
+                    <a href="{% url 'earphones' %}">
+                    <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bringing">
+                <div class="bringing-left">
+                    <h1>Bringing you the <span>best</span> audio gear</h1>
+                    <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+                </div>
+                <div class="bringing-right"></div>
+            </div>
+        </main>
+        <footer>
+                <div id="foot-item-1" class="fooot-item">
+                  <img src="{% static 'commerce/images/shared/logo.svg' %}">
+                </div>
+                <div id="foot-item-2" class="foot-item">
+                  <nav>
+                    <ul>
+                      <li><a href="{% url 'index' %}">Home</a></li>
+                      <li><a href="{% url 'headphones' %}">Headphones</a></li>
+                      <li><a href="{% url 'speaker' %}">Speakers</a></li>
+                      <li><a href="{% url 'earphones' %}">Earphones</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <div id="foot-item-3" class="foot-item">
+                  <p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+                </div>
+                <div id="foot-item-4" class="foot-item">
+                  <p>Copyright 2021. All Rights Reserved</p>
+                </div>
+                <div id="foot-item-5" class="foot-item">
+                  <img src="{% static 'commerce/images/shared/icon-facebook.svg'%}" alt="">
+                  <img src="{% static 'commerce/images/shared/icon-twitter.svg'%}" alt="">
+                  <img src="{% static 'commerce/images/shared/icon-instagram.svg'%}" alt="">
+                </div>
+        </footer>
+
+    </div>
+</body>
+</html>

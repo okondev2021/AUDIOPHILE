@@ -1,0 +1,72 @@
+{% extends 'commerce/template.html' %}
+
+{% load static %}
+
+{% block head %}
+    SPEAKERS
+{% endblock %}
+
+{% block cart %}
+    <div class="topp">
+        <img height="20px" id="closecart" src="{% static 'commerce/images/icon-close.svg' %}" alt="">
+    </div>
+    <div class="bottom">
+      <div class="one">
+        <h2>Cart(<span id="supp"></span>)</h2>
+        <form action="{% url 'speaker' %}" method="POST">
+            {% csrf_token %}
+            <input name="removeall" type="submit" value="Remove all">
+        </form>
+      </div>
+      <div class="two">
+        <div style="width: 100%" id="two_1">
+            {% for cartinfos in cartinfo %}
+                <div style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 0.5em" id="two_11">
+                    <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
+                        <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
+                    </div>
+                    <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.FinalCount}}</span></div>
+                </div>
+            {% empty %}
+              <p id="emptycart"  style="width: 100%">Cart is empty</p>
+            {% endfor %}
+        </div>
+      </div>
+      <hr>
+      <div class="three">
+        <div>Total</div>
+        <div >$<span id="total"></span></div>
+      </div>
+    </div>
+    <div id="checkout">
+        <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="speakers">
+        <div class="speakproduct">
+            <div class="speakproduct_left">
+                <img src="{% static 'commerce/images/category-speakers/image-zx9.jpg' %}" alt="">
+            </div>
+            <div class="speakproduct_right">
+                <h3>New product</h3>
+                <h1>ZX9 speaker</h1>
+                <p>  Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.</p>
+                <button><a href="{% url 'product' product2.Product_Name %}">See product</a></button>
+            </div>
+        </div>
+
+        <div class="speakproduct">
+            <div class="speakproduct_right">
+                <h1>ZX7 speaker</h1>
+                <p>  Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.</p>
+                <button><a href="{% url 'product' product1.Product_Name %}">See product</a></button>
+            </div>
+            <div class="speakproduct_left">
+                <img src="{% static 'commerce/images/category-speakers/image-zx7.jpg' %}" alt=""> 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

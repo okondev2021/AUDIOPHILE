@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audiophile</title>
+  <link rel="stylesheet" href="{% static 'commerce/template.css' %}">
+  <script src="{% static 'commerce/template.js' %}"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="shadow"></div>
+    <!-- header -->
+    <header class="top">
+      <!-- top -->
+      <div class="top-nav">
+        <div class="top-nav-left">
+          <img style="cursor: pointer;" src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+        </div>
+        <div class="top-nav-center">
+          <nav>
+            <ul>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'headphones' %}">Headphones</a></li>
+              <li><a href="{% url 'speaker' %}">Speakers</a></li>
+              <li><a href="{% url 'earphones' %}">Earphones</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="top-nav-right">
+          <img style="cursor: pointer;" id="cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+          <sup id="sup"></sup>
+        </div>
+      </div>
+      <!-- mobile_nav -->
+      <div style="transition: all 0.3s ease-in">
+          <div class="mobile-top-nav">
+            {% if request.user.is_authenticated %}
+              <div class="mobile-top-nav-left">
+                <img style="cursor: pointer;" id="mobile_cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+                <sup id="mobilesup"></sup>
+              </div>
+            {% endif %}
+            <div class="mobile-top-nav-center">
+              <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+            </div>
+            <div class="mobile-top-nav-right">
+              <img style="cursor: pointer;" id="hamburger" src="{% static 'commerce/images/icon-hamburger.svg' %}" alt="">
+              <img style="cursor: pointer;" id="close" src="{% static 'commerce/images/icon-navclose.svg' %}" alt="">
+            </div>
+          </div>
+          <!-- mobile navbar links -->
+          <div class="mobile_nav_link">
+            <div>
+              <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+              <h3>Headphones</h3>
+              <a href="{% url 'headphones' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+            <div>
+              <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+              <h3>Speakers</h3>
+              <a href="{% url 'speaker' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+            <div>
+              <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+              <h3>Earphones</h3>
+              <a href="{% url 'earphones' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      <!-- header_text -->
+      <div class="head">
+        <h1>
+          {% block head %}
+          {% endblock %}
+        </h1>
+      </div>
+    </header>
+    <div id="cart">
+      {% block cart %}
+      {% endblock %}
+    </div>    
+    
+    <!-- items -->
+      {% block body %}
+      {% endblock %}
+
+    <!-- mid -->
+    <div class="top-mid">
+        <div>
+          <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+          <h3>Headphones</h3>
+          <a href="{% url 'headphones'%}">
+              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+            </a>
+        </div>
+        <div>
+          <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+          <h3>Speakers</h3>
+          <a href="{% url 'speaker' %}">
+              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+            </a>
+        </div>
+        <div>
+          <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+          <h3>Earphones</h3>
+          <a href="{% url 'earphones' %}">
+            <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+          </a>
+        </div>
+    </div>
+
+    <!-- bringing -->
+    <div class="bringing">
+        <div class="bringing-left">
+          <h1>Bringing you the <span>best</span> audio gear</h1>
+          <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+        </div>
+        <div class="bringing-right">
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div id="foot-item-1" class="fooot-item">
+        <img src="{% static 'commerce/images/shared/logo.svg' %}">
+      </div>
+      <div id="foot-item-2" class="foot-item">
+        <nav>
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'headphones' %}">Headphones</a></li>
+            <li><a href="{% url 'speaker' %}">Speakers</a></li>
+            <li><a href="{% url 'earphones' %}">Earphones</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="foot-item-3" class="foot-item">
+        <p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+      </div>
+      <div id="foot-item-4" class="foot-item">
+        <p>Copyright 2021. All Rights Reserved</p>
+      </div>
+      <div id="foot-item-5" class="foot-item">
+        <img src="{% static 'commerce/images/shared/icon-facebook.svg'%}" alt="">
+        <img src="{% static 'commerce/images/shared/icon-twitter.svg'%}" alt="">
+        <img src="{% static 'commerce/images/shared/icon-instagram.svg'%}" alt="">
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

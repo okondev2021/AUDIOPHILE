@@ -1,0 +1,84 @@
+{% extends 'commerce/template.html' %}
+
+{% load static %}
+
+  {% block head %}
+    Headphones
+  {% endblock %}
+
+  {% block cart %}
+    <div class="topp">
+        <img height="20px" id="closecart" src="{% static 'commerce/images/icon-close.svg' %}" alt="">
+    </div>
+    <div class="bottom">
+      <div class="one">
+        <h2>Cart(<span id="supp"></span>)</h2>
+        <form action="{% url 'headphones' %}" method="POST">
+            {% csrf_token %}
+            <input name="removeall" type="submit" value="Remove all">
+        </form>
+      </div>
+      <div class="two">
+        <div style="width: 100%" id="two_1">
+          {% for cartinfos in cartinfo %}
+              <div style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 0.5em" id="two_11">
+                  <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
+                      <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
+                  </div>
+                  <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.FinalCount}}</span></div>
+              </div>
+          {% empty %}
+            <p id="emptycart"  style="width: 100%">Cart is empty</p>
+          {% endfor %}
+      </div>
+      </div>
+      <hr>
+      <div class="three">
+        <div>Total</div>
+        <div >$<span id="total"></span></div>
+      </div>
+    </div>
+    <div id="checkout">
+      <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>
+    </div>
+{% endblock %}
+
+  {% block body %}
+    <div class="headphones">
+
+      <div class="headproduct" id="headphones_1">
+        <div class="headproduct_left">
+          <img src="{% static 'commerce/images/category-headphones/marktwo.jpg' %}" alt="">
+        </div>
+        <div class="headproduct_right">
+          <h3>New product</h3>
+          <h1>XX99 Mark II Headphones</h1>
+          <p>  The new XX99 Mark II headphones is the pinnacle of pristine audio. It    redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
+          <button><a href="{% url 'product' product3.Product_Name %}">See product</a></button>
+        </div>
+      </div>
+
+      <div class="headproduct" id="headphones_2">
+        <div class="headproduct_right">
+          <h1>XX99 Mark I Headphones</h1>
+          <p>  As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.</p>
+          <button><a href="{% url 'product' product2.Product_Name %}">See product</a></button>
+        </div>
+        <div class="headproduct_left">
+          <img src="{% static 'commerce/images/category-headphones/markone.jpg' %}" alt="">
+        </div>
+      </div>
+
+      <div class="headproduct" id="headphones_3">
+        <div class="headproduct_left">
+          <img src="{% static 'commerce/images/category-headphones/markthree.jpg' %}" alt="">
+        </div>
+        <div class="headproduct_right">
+          <h1>XX59 Headphones</h1>
+          <p>  Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.</p>
+          <button><a href="{% url 'product' product1.Product_Name %}">See product</a></button>
+        </div>
+      </div>
+    </div>
+
+  {% endblock %}

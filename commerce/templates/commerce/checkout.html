@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audiophile</title>
+  <link rel="stylesheet" href="{% static 'commerce/checkout.css' %}">
+  <script src="{% static 'commerce/checkout.js' %}"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- <div class="successful"> -->
+      <div class="successful">
+        <h2>Transaction</h2>
+        <div class="checkmark">
+          <span></span>
+        </div>
+        <h2>Successful</h2>
+        <button id="transaction_end">Home</button>
+      </div>
+    <!-- </div> -->
+    <div class="shadow"></div>
+    <header>
+        <!-- topnav -->
+        <div class="top_nav">
+          <div class="top-left">
+            <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+          </div>
+          <div class="top-center">
+            <nav>
+              <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'headphones' %}">Headphones</a></li>
+                <li><a href="{% url 'speaker' %}">Speakers</a></li>
+                <li><a href="{% url 'earphones' %}">Earphones</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="top-right">
+            <img style="cursor: pointer;" data-name="{{product.Product_Name}}" id="cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+            <sup id="sup">{{User_cart.Cart.count}}</sup>
+          </div>
+        </div>
+      <!-- mobile_nav -->
+      <div style="transition: all 0.3s ease-in">
+          <div class="mobile-top-nav">
+            {% if request.user.is_authenticated %}
+              <div class="mobile-top-nav-left">
+                <img style="cursor: pointer;" id="mobile_cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
+                <sup id="mobilesup"></sup>
+              </div>
+            {% endif %}
+            <div class="mobile-top-nav-center">
+              <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+            </div>
+            <div class="mobile-top-nav-right">
+              <img style="cursor: pointer;" id="hamburger" src="{% static 'commerce/images/icon-hamburger.svg' %}" alt="">
+              <img style="cursor: pointer;z-index: 1000000" id="close" src="{% static 'commerce/images/icon-navclose.svg' %}" alt="">
+            </div>
+          </div>
+          <!-- mobile navbar links -->
+          <div class="mobile_nav_link">
+            <div>
+              <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+              <h3>Headphones</h3>
+              <a href="{% url 'headphones' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+            <div>
+              <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+              <h3>Speakers</h3>
+              <a href="{% url 'speaker' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+            <div>
+              <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+              <h3>Earphones</h3>
+              <a href="{% url 'earphones' %}">
+                <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
+              </a>
+            </div>
+          </div>
+        </div>
+    </header>
+    <div id="cart">
+      <div class="topp">
+          <img height="20px" id="closecart" src="{% static 'commerce/images/icon-close.svg' %}" alt="">
+      </div>
+      <div class="bottom">
+        <div class="one">
+          <h2>Cart(<span id="supp"></span>)</h2>
+          <form action="{% url 'checkout' %}" method="POST">
+              {% csrf_token %}
+              <input name="removeall" type="submit" value="Remove all">
+          </form>
+        </div>
+        <div class="two">
+          <div style="width: 100%" id="two_1">
+            {% for cartinfos in cartinfo %}
+              <div style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 0.5em" id="two_11">
+                <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
+                  <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
+                </div>
+                <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}">
+                  $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.FinalCount}}</span> 
+                  <span style="display: none" id="amount" data-initialPrice = "{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductName.Amount}}</span> 
+                </div>
+              </div>
+            {% empty %}
+              <p id="emptycart"  style="width: 100%">Cart is empty</p>
+            {% endfor %}
+          </div>
+        </div>
+        <hr>
+        <div class="three">
+          <div>Total</div>
+          <div>$<span id="total"></span></div>
+        </div>
+      </div>
+      <div id="checkout">
+        <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>  
+      </div>
+    </div>
+    <main>
+      <div class="main_left">
+        <!-- billing -->
+        <div class=" input_section billing">
+          <h3 class="form_head">Billing details</h3>
+          <div class="towinput">
+            <div class="form_tag left">
+              <label class="label_tag" for="">Name</label>
+              <input disabled type="text" placeholder="{{request.user.first_name}} {{request.user.last_name}}">
+            </div>
+            <div class="form_tag right">
+              <label class="label_tag" >Email address</label>
+              <input disabled type="email" placeholder="{{request.user.email}}">
+            </div>
+          </div>
+          <div id="phone_div" class="towinput">
+            <div class="form_tag">
+              <div class="label_div">
+                <label class="label_tag" for="">Phone number</label>
+                <label id="label_phone" class="label_right" for="">Phone</label>
+              </div>
+              <input data-name="phone" class="input_fields" type="tel" placeholder="+123456789">
+            </div>
+          </div>
+        </div>
+        <!-- Shipping info -->
+        <div class="input_section shipping">
+          <h3 class="form_head">Shipping info</h3>
+          <div class="form_tag">
+            <div class="label_div">
+              <label class="label_tag" for="">Address</label>
+              <label id="label_address" class="label_right" >Address</label>
+            </div>
+            <input data-name="address" class="input_fields" type="text" placeholder="No 7 close one imutun CDA">
+          </div>
+          <div class="towinput">
+            <div class="form_tag left">
+              <div class="label_div">
+                <label class="label_tag" for="">ZIP</label>
+                <label id="label_zip" class="label_right" >ZIP</label>
+              </div>
+              <input data-name="zip" class="input_fields" type="number" placeholder="213433">
+            </div>
+            <div class="form_tag right">
+              <div class="label_div">
+                <label class="label_tag" for="">City</label>
+                <label id="label_city" class="label_right" >City</label>
+              </div>
+              <input data-name="city" class="input_fields" type="text" placeholder="Lagos">
+            </div>
+          </div>
+          <div id="country_div" class="towinput">
+            <div class="form_tag">
+              <div class="label_div">
+                <label class="label_tag" for="">Country</label>
+                <label id="label_country" class="label_right" >Country</label>
+              </div>
+              <input data-name="country" class="input_fields" type="text" placeholder="Nigeria">
+            </div>
+          </div>
+        </div>
+        <!-- payment -->
+        <div id="payment" class="input_section payment">
+          <h3 class="form_head">Payment details</h3>
+          <div style="grid-row-gap: 1em;" class="towinput">
+            <div><h3>PAYMENT METHOD</h3></div>
+            <div id="radiodiv1" class="radiodiv">
+              <input data-name="emoney" class="payment_option" name="paymenttype" type="radio"><label for="">e-Money</label>
+            </div>
+            <div id="hidden_section">
+              <div id="payment_delivery" class="payment_type">
+                <p>  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+              </div>
+              <form id="payment_emoney" class="payment_type">
+                <div class="form_tag right">
+                  <input type="number" placeholder="e-Money number">
+                </div>
+                <div class="form_tag right">
+                  <input type="password" placeholder="e-money PIN">
+                </div>
+              </form> 
+            </div>
+            <div id="radiodiv2" class="radiodiv">
+              <input data-name="delivery" class="payment_option" name="paymenttype" type="radio"><label for="">Cash on Delivery</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_right">
+        <h3>SUMMARY</h3>
+        {% for cartinfos in cartinfo %}
+          <div id="checkout_display">
+            <div>
+              <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">
+                <div style="display: flex">
+                  <img src="{{cartinfos.ProductName.Product_Image.url}}" alt="">
+                  <div id="name_left">
+                    <h3 class="amount">{{cartinfos.ProductName.Title}}</h3>
+                    <span>${{cartinfos.FinalCount}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <p><span>x</span>{{cartinfos.ProductCount}}</p>
+          </div>
+        {% endfor %}
+        <div class="checkout_details" >
+          <h3 class="checkout_labels">Total</h3>
+          <h3>$<span id="total_amount"></span></h3>
+        </div>
+        <div class="checkout_details" >
+          <h3 class="checkout_labels">SHIPPING</h3>
+          <h3>$<span id="shipping"></span></h3>
+        </div>
+        <div class="checkout_details" >
+          <h3 class="checkout_labels">VAT (TAX INCLUDED)</h3>
+          <h3>$<span id="vat"></span></h3>
+        </div>
+        <div class="checkout_details" >
+          <h3 class="checkout_labels">GRAND TOTAL</h3>
+          <h3>$<span id="grandtotal"></span></h3>
+        </div>
+        <div id="checkout_end">
+          <div>
+            <button class="pay" type="submit">CONTINUE & PAY</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div id="foot-item-1" class="fooot-item">
+        <img src="{% static 'commerce/images/shared/logo.svg' %}">
+      </div>
+      <div id="foot-item-2" class="foot-item">
+        <nav>
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'headphones' %}">Headphones</a></li>
+            <li><a href="{% url 'speaker' %}">Speakers</a></li>
+            <li><a href="{% url 'earphones' %}">Earphones</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="foot-item-3" class="foot-item">
+        <p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+      </div>
+      <div id="foot-item-4" class="foot-item">
+        <p>Copyright 2021. All Rights Reserved</p>
+      </div>
+      <div id="foot-item-5" class="foot-item">
+        <img src="{% static 'commerce/images/shared/icon-facebook.svg'%}" alt="">
+        <img src="{% static 'commerce/images/shared/icon-twitter.svg'%}" alt="">
+        <img src="{% static 'commerce/images/shared/icon-instagram.svg'%}" alt="">
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,951 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+button{
+    outline: none
+}
+
+.container,main{
+    position: relative;
+}
+
+.mobile_nav_link{
+    display: none
+}
+
+.shadow{
+    background: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none
+}
+
+#close{
+    display: none
+}
+
+#cart{
+    z-index: 1000;
+    right: 4%;
+    top: 2%;
+    background: #fff;
+    position: absolute;;
+    width: 30%;
+    border-radius: 10px;
+    display: none;
+    padding: 1em;
+    color: black
+  }
+
+#cart .topp{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#cart .topp img{
+    cursor: pointer;
+}
+
+#cart .bottom{
+  margin-top: 1em
+}
+
+#cart .bottom .one,#cart .bottom .two,#cart .bottom .three{
+    display: flex;
+    justify-content: space-between
+}
+
+#cart .bottom .one form input{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+#cart .bottom .two{
+  margin-top: 1em;
+  padding: 0;
+}
+
+#cart .bottom .two div p{
+  width: 100%;
+  margin-top: 1em;
+  padding: 0;
+}
+
+#cart .bottom .three{
+    margin-top: 0.5em
+}
+
+#cart .bottom .three #total{
+  width: 100%;
+}
+
+#cart #checkout{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2em
+}
+
+#cart #checkout button{
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: #d87d4a;
+    border: none;
+}
+
+#cart #checkout button a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff
+}
+
+#cart hr{
+    margin-top: 1em
+}
+
+#mobilesup{
+    color: #d87d4a
+}
+
+header .top_nav{
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 7em
+}
+
+header .mobile-top-nav{
+    display: none
+}
+
+header .top-left, header .top-right{
+    cursor: pointer;
+}
+
+header .top-center nav ul{
+    list-style-type: none;
+}
+
+header .top-center nav ul li{
+    display: inline-flex;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 0.8rem
+}
+
+header .top-center nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header .top-right sup{
+    color: #d87d4a
+}
+
+main{
+    padding: 0 7em;
+}
+
+main .top{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4em;
+    margin-top: 2.5em;
+    grid-row-gap: 2em
+}
+
+main .top .top-left{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+main .top .top-left img{
+    height: 550px;
+    width: 100%;
+}
+
+main .top .top-right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: initial
+}
+
+main .top .top-right h3{
+    text-transform: uppercase;
+    color: #fbaf85;
+    font-weight: 100;
+    letter-spacing: 0.2em;
+}
+
+main .top .top-right h1{
+    text-transform: uppercase;
+    margin-top: 0em;
+    margin-bottom: 0.2em;
+    font-size: 2.5rem;
+    line-height: 1.4em
+}
+
+main .top .top-right p{
+    width: 85%
+}
+
+main .top .top-right b{
+    margin-top: 0.5em;
+}
+
+main .top .top-right .add{
+    display: flex;
+    margin-top: 0.7em
+}
+
+main .top .top-right .add div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f1f1;;
+    border: none;
+    margin-right: 1em;
+    padding: 0em;
+    height: 60px;
+    width: 160px;
+}
+
+main .top .top-right .add div p{
+    text-align: center;
+}
+
+main .top .top-right .add div button{
+    background:transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px
+}
+
+main .top .top-right .add form{
+    width: 100%;
+    padding: 0;
+    margin-left: 0em;
+    height: 60px;
+    width: 160px;
+}
+
+main .top .top-right .add #addtocart{
+    background: #d87d4a;
+    border: none;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+}
+
+main .top .features h3{
+    letter-spacing: 0.2em
+}
+
+main .top .features p{
+    margin-top: 1em;
+    line-height: 1.3em
+}
+
+main .top .box{
+    padding-left: 2em
+}
+
+
+main .top .box p{
+    margin-top: 1em
+}
+
+main .top .box p span{
+    color: #d87d4a;
+    padding-right: 1em
+}
+
+main .sub{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    margin-top: 2.5em
+}
+
+main .sub div{
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
+
+main .sub .sub_3{
+    grid-row: 1/3;
+    grid-column: 2;
+    height: 100%;
+}
+
+main .others{
+    margin-top: 3em;
+}
+
+main .others h4{
+    text-align: center
+}
+
+main .others .others_list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+    margin-top: 1em
+}  
+
+main .others div img{
+    height: 300px;
+    width: 100%
+}
+
+main .others .others_list .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+main .others .others_list .info h3{
+    color: #d87d4a;
+    margin-top: 0.5em;
+    text-align: center
+}
+
+main .others .others_list .info button{
+    background: #d87d4a;
+    border: none;
+    height: 50px;
+    width: 50%;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1em
+}
+
+main .others .others_list .info button a{
+    color: #fff;
+    text-decoration: none
+}
+
+.top-mid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3em;
+    margin-top: 8em
+}
+
+.top-mid div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fafafa; 
+    padding-bottom: 1.5em
+}
+
+.top-mid div img{
+    width:180px;
+    margin-top: -4em
+}
+
+.top-mid div p{
+    margin-top: 1em;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.top-mid .arrow{
+    width: 10px;
+    height: 12px;
+    cursor: pointer;
+    margin-top: 0em;
+    margin-left: 0.3em
+}
+
+.top-mid a{
+    color: rgba(0, 0, 0, 0.523);
+    text-decoration: none
+}
+
+.bringing{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2em;
+    grid-column-gap: 5em
+}
+
+.bringing div{
+    height: 90vh;
+}
+
+.bringing .bringing-left{
+    display: flex;
+    justify-content:center;
+    flex-direction: column
+}
+
+.bringing .bringing-left h1{
+    font-size: 2.5rem;
+    text-transform: uppercase
+}
+
+.bringing .bringing-left p{
+    width: 81%;
+    margin-top: 1em
+}
+
+.bringing .bringing-left span{
+    color: #d87d4a
+}
+
+.bringing .bringing-right{
+    background: url('./images/shared/gearimage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+footer{
+    padding: 4em 7em;
+    background: #000000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 2.5em;
+    margin-top: 4em
+}
+
+footer .foot-item nav ul{
+    list-style-type: none;
+}
+
+footer .foot-item nav ul li{
+    display: inline-flex;
+    margin-left: 4em;
+    margin-right: 0em;
+    font-size: 0.8rem
+}
+
+footer .foot-item nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+footer .foot-item p{
+    color: #ffffff;
+}
+
+footer #foot-item-3 p{
+    width: 40%;
+    line-height: 1.4em
+}
+
+footer #foot-item-3{
+    grid-column: 1/3
+}
+
+footer #foot-item-2{
+    justify-content: flex-end;
+    justify-self: flex-end;
+    justify-items: flex-end
+}
+
+footer #foot-item-5{
+    justify-content: flex-end;
+    justify-self: flex-end;
+    justify-items: flex-end
+}
+
+footer #foot-item-5 img{
+    margin-left: 2em;
+    height: 20px;
+    width: 20px
+}
+
+
+/* mediaquerymediaquerymediaquerymediaquerymediaquerymediaquerymediaquerymediaquerymediaquery*/
+
+@media (max-width:767px){
+
+
+    /* mobile nav_links */
+    .mobile_nav_link{
+            display: grid;
+            grid-template-columns: 1fr;
+            height: 100vh;
+            width: 100%;
+            z-index: 100;
+            position: absolute;
+            top: 1.2%;
+            left: 0;
+            visibility: hidden;
+            background: white;
+            justify-self: center;
+            justify-items: center;
+            grid-row-gap: 2em;
+            padding: 2em 0
+    }
+
+    .mobile_nav_link div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        background:#fafafa;
+        width: 60%;
+        height:70%;
+        padding-top: -4em;
+        padding-bottom: 1em
+    }
+
+    .mobile_nav_link div:nth-child(3){
+        padding-bottom: 1em
+    }
+
+    .mobile_nav_link div img{
+        width:100px;
+    }
+
+    .mobile_nav_link div p{
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+    }
+
+    .mobile_nav_link .arrow{
+        width: 10px;
+        height: 12px;
+        cursor: pointer;
+        margin-left: 0.3em
+    }
+
+    .mobile_nav_link a{
+        color: black;
+        text-decoration: none
+    }
+    /* end */
+
+    #cart{
+        z-index: 1000;
+        right: 5%;
+        top: 2%;
+        width: 90%;
+        margin: 0 auto
+    }
+
+    #cart .bottom .two div #productname_incart{
+        font-size: 0.9rem
+    }
+
+    main .others .others_list .info h3{
+        display: none
+    }
+
+    header .top_nav{
+        display: none
+    }
+
+    header .mobile-top-nav{
+        display: block;
+        background: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.5em;
+    }
+
+    main{
+        padding: 0 1.5em;
+    }
+
+    main .top{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 0em;
+        grid-row-gap: 2em
+    }
+
+    main .top .top-left img{
+        width: 100%;
+        height: auto;
+    }
+
+    main .top .top-right h3{
+        font-size: 0.9rem;
+        letter-spacing: 10px
+    }
+
+    main .top .top-right h1{
+        font-size: 2rem;
+        line-height: normal;
+        margin-top: 1em;
+        width: 100%
+    }
+
+    main .top .top-right p{
+        margin: 0;
+        width: 90%;
+        margin: 1em 0
+    }
+
+    main .top .top-right b{
+        letter-spacing: 2px;
+        margin-bottom: 1em
+    }
+
+    main .top .top-right .add{
+        margin-top: 0
+    }
+
+    main .top .top-right .add div{
+        height: 50px;
+        width: 100px;
+    }
+
+    main .top .top-right .add form{
+        height: 50px;
+        width: 130px;
+    }
+
+    main .top .top-right .add form input{
+        font-size: 0.7rem
+    }
+
+    main .top .features{
+        margin-top: 2em
+    }
+
+    main .top .features p{
+        width: 100%
+    }
+
+    main .top .box{
+        margin-top: 2em;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    main .sub{
+        grid-template-columns: 1fr;
+        grid-gap: 1em;
+        margin-top: 4em;
+    }
+    
+
+    main .sub .sub_1{
+        grid-column: 1/2;
+        grid-row: 1;
+        height: 200px;
+    }
+
+    main .sub .sub_2{
+        grid-column: 1/2;
+        grid-row: 2;
+        height: 200px;
+    }
+
+    main .sub .sub_3{
+        grid-row: 3;
+        grid-column: 1/2;
+        height: 300px;
+    }
+
+    main .others{
+        margin-top: 4em
+    }
+
+    main .others h4{
+        font-size: 1.5rem;
+        margin-bottom: 1em
+    }
+
+    main .others .others_list{
+        grid-template-columns: 1fr;
+        grid-column-gap: 0em;
+        grid-row-gap: 2em
+    } 
+
+    main .others .others_list .info h3{
+        text-align: center
+    }
+
+    .top-mid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 3em;
+        grid-row-gap: 8em
+    }
+
+    /* bringing */
+
+    .bringing{
+        grid-template-columns: 1fr;
+        grid-row-gap:1.5em
+    }
+
+    .bringing div{
+        height: 60vh;
+    }
+
+    .bringing .bringing-right{
+        grid-row: 1
+    }
+
+    .bringing .bringing-left{
+        align-items: center;
+        height: 100%;
+    }
+    
+    .bringing .bringing-left h1{
+        font-size: 1.5rem;
+        text-align: center
+    }
+    
+    .bringing .bringing-left p{
+        width: 100%;
+        text-align: center;
+        line-height: 25px
+    }
+
+    /* footer */
+
+    footer{
+        padding: 4em 1.5em;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1.5em;
+        padding-bottom: 2em;
+        margin-top: 4em;
+        margin-bottom: 0em;
+    }
+
+    footer .foot-item{
+        width: 100%
+    }
+
+    footer #foot-item-1{
+        grid-row: 1;
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer #foot-item-2{
+        grid-row: 2;
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer .foot-item nav{
+        width: 100%
+    }
+
+    footer .foot-item nav ul li{
+        margin-top: 1.3em;
+        width: 100%;
+        margin-left: 0
+    }
+
+    footer .foot-item nav ul li:nth-child(1){
+        margin-top: 0
+    }
+
+    footer .foot-item nav ul li{
+        display: block;
+        text-align: center
+    }
+    
+    footer #foot-item-3 p{
+        width: 100%;
+        line-height: 1.5em;
+        text-align: center
+    }
+
+    footer #foot-item-4{
+        grid-row: 4;
+        grid-column: 1/3;;
+        text-align: center
+    }
+
+    footer #foot-item-4 p{
+        text-align: center
+    }
+
+    footer #foot-item-5{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+}
+
+
+@media (max-width:767px) and (min-width:700px){
+
+    .mobile_nav_link{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 100vh;
+        width: 100%;
+        z-index: 100;
+        position: absolute;
+        top: 1.2%;
+        left: 0;
+        visibility: hidden;
+        background: white;
+        justify-self: center;
+        justify-items: center;
+        grid-row-gap: 2em;
+        padding: 2em 0
+}
+
+    header .mobile-top-nav{
+        padding: 1em 3em;
+    }
+    
+    main{
+        padding: 0 3em
+    }
+
+    main .sub .sub_1{
+        grid-column: 1/2;
+        grid-row: 1;
+        height: 300px;
+    }
+
+    main .sub .sub_2{
+        grid-column: 1/2;
+        grid-row: 2;
+        height: 300px;
+    }
+
+    main .sub .sub_3{
+        grid-row: 3;
+        grid-column: 1/2;
+        height: 400px;
+    }
+
+    main .top-mid{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1em
+    }
+
+    main .others .others_list{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 0em;
+        grid-column-gap: 2em
+    } 
+
+    main .others .others_list .info h3{
+        font-size: .9rem
+    }
+
+    main .others .others_list .info button{
+        height: 50px;
+        width: 90%;
+        margin-top: 1em
+    }
+
+    footer{
+        padding: 4em 3em;
+    }
+}
+
+
+@media (max-width:1050px) and (min-width:768px){
+
+    #cart{
+        z-index: 1000;
+        right: 4%;
+        top: 2%;
+        background: #fff;
+        position: absolute;;
+        width: 50%;
+    }
+
+    header .top_nav{
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    header .top_nav img{
+        height: 20px;
+    }
+
+    main{
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    
+    main .top{
+        grid-gap: 2em;
+    }
+
+    main .top .box {
+        padding-left: 0
+    }
+
+    main .others div img{
+        height: 200px;
+        width: 100%
+    }
+
+    .bringing{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 4em;
+        grid-column-gap: 1em
+    }
+
+    .bringing div{
+        height: 60vh;
+    }
+
+    .bringing .bringing-left h1{
+        font-size: 2rem;
+    }
+    
+    .bringing .bringing-left p{
+        width: 100%;
+        margin-top: 1em
+    }
+
+    footer{
+        padding: 3em 0;
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-bottom: 1em;
+        grid-row-gap: 1.5em
+    }
+
+    footer .foot-item nav ul li{
+        margin-left: 1em;
+        font-size: 0.75rem
+    }
+
+    footer #foot-item-3 p{
+        width: 60%;
+        line-height: 1.4em
+    } 
+}
+
+
