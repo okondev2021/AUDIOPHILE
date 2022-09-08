@@ -56,7 +56,7 @@
                             <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
                                 <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
                             </div>
-                            <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.FinalCount}}</span></div>
+                            <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.Final_Price}}</span></div>
                         </div>
                     {% empty %}
                       <p id="emptycart"  style="width: 100%">Cart is empty</p>
@@ -105,6 +105,7 @@
             <a href="{% url 'speaker' %}">
               <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
             </a>
+            cartinfo
           </div>
           <div>
             <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">

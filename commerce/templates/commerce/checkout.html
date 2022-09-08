@@ -105,7 +105,7 @@
                   <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
                 </div>
                 <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}">
-                  $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.FinalCount}}</span> 
+                  $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.Final_Price}}</span> 
                   <span style="display: none" id="amount" data-initialPrice = "{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductName.Amount}}</span> 
                 </div>
               </div>
@@ -222,7 +222,7 @@
                   <img src="{{cartinfos.ProductName.Product_Image.url}}" alt="">
                   <div id="name_left">
                     <h3 class="amount">{{cartinfos.ProductName.Title}}</h3>
-                    <span>${{cartinfos.FinalCount}}</span>
+                    <span>${{cartinfos.Final_Price}}</span>
                   </div>
                 </div>
               </a>

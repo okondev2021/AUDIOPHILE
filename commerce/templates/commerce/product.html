@@ -33,6 +33,7 @@
                     <img data-name="{{product.Product_Name}}" id="cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
                     <sup id="sup">{{User_cart.Cart.count}}</sup>
                 </div>
+                other
             </div>
       <!-- mobile_nav -->
       <div style="transition: all 0.3s ease-in">
@@ -96,7 +97,10 @@
                                     <div id="productname_incart" class="productname_{{cartinfos.ProductName.Product_Name}}" data-item="{{cartinfos.ProductName.Product_Name}}">
                                         <a style="color: black;text-decoration: none" href="{% url 'product' cartinfos.ProductName.Product_Name %}">{{cartinfos.ProductName}} x<span data-countname ="{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductCount}}</span> </a>
                                     </div>
-                                    <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}"> $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.FinalCount}}</span> <span style="display: none" data-initialPrice = "{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductName.Amount}}</span> </div>
+                                    <div id="amount_{{cartinfos.ProductName.Product_Name}}" data-itemprice="{{cartinfos.ProductName.Product_Name}}">
+                                        $<span data-initemprice="{{cartinfos.ProductName.Product_Name}}" class="amount">{{cartinfos.Final_Price}}</span>
+                                        <span style="display: none"  data-initialPrice = "{{cartinfos.ProductName.Product_Name}}">{{cartinfos.ProductName.Amount}}</span> 
+                                    </div>
                                 </div>
                             {% endfor %}
 
@@ -149,7 +153,6 @@
                     <p><span>2x</span> Lorem, ipsum dolor.</p>
                     <p><span>1x</span> Lorem, ipsum dolor.</p>
                     <p><span>3x</span> Lorem, ipsum dolor.</p>
-
                 </div>
             </div>
             <div st class="sub">
@@ -161,12 +164,12 @@
             <div class="others">  
                 <h4>YOU MAY ALSO LIKE</h4>
                 <div class="others_list">
-                    {% for other in others %}
+                    {% for other_product in other_products %}
                         <div>
-                            <img src="{{other.Product_Image.url}}" alt="">
+                            <img src="{{other_product.Product_Image.url}}" alt="">
                             <div class="info">
-                                <h3>{{other.Title}}</h3>
-                                <button><a href="{% url 'product' other.Product_Name %}">SEE PRODUCT</a></button>
+                                <h3>{{other_product.Title}}</h3>
+                                <button><a href="{% url 'product' other_product.Product_Name %}">SEE PRODUCT</a></button>
                             </div>
                         </div>
                     {% endfor %}

@@ -1,25 +1,24 @@
 from django.urls import path
-from . import views
+from . views import audiophile
 
 
 urlpatterns = [
-    path('',views.index,name = 'index'),
-    path('Headphones',views.headphones,name = 'headphones'),
-    path('Earphones',views.earphones,name = 'earphones'),
-    path('Speaker',views.speaker,name = 'speaker'),
-    path('Product/<str:name>',views.product,name='product'),
-    path('Login',views.login_view,name='login'),
-    path('Register',views.register_view,name='register'),
-    path('Logout',views.logout_view,name='logout'),
-    path('Checkout',views.checkout,name='checkout'),
+    path('',audiophile.index,name = 'index'),
+    path('Headphones',audiophile.headphones,name = 'headphones'),
+    path('Earphones',audiophile.earphones,name = 'earphones'),
+    path('Speaker',audiophile.speaker,name = 'speaker'),
+    path('Product/<str:name>',audiophile.product,name='product'),
+    path('Login',audiophile.login_view,name='login'),
+    path('Register',audiophile.register_view,name='register'),
+    path('Logout',audiophile.logout_view,name='logout'),
+    path('Checkout',audiophile.checkout,name='checkout'),
 
     # api route
-    path('Save/<str:name>',views.save,name='save'),
-    path('CostPrice/<str:itemname>',views.cost,name='cost'),
-    path('AddCart/<str:name>',views.addcart,name='addcart'),
-    path('Cart',views.cart,name='cart'),
-    path('Cartcount/<str:name>',views.productcount,name='productcount'),
-    path('GetItem/<str:name>',views.getitem,name='getitem'),
-    path('checkout_details',views.checkout_details,name='checkout_details'),
-    path('post_checkout',views.post_checkout,name='post_checkout'),
+    path('Save/<str:itemname>',audiophile.save,name='save'),
+    path('AddCart/<str:name>',audiophile.addcart,name='addcart'),
+    path('Cart',audiophile.cart,name='cart'),
+    path('Cartcount/<str:name>',audiophile.productcount,name='productcount'),
+    path('GetItem/<str:name>',audiophile.getitem,name='getitem'),
+    path('checkout_details',audiophile.checkout_details,name='checkout_details'),
+    path('post_checkout',audiophile.post_checkout,name='post_checkout'),
 ]

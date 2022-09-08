@@ -74,19 +74,48 @@ document.addEventListener('DOMContentLoaded',function(){
 
     function clear_error(name){
         document.querySelector(`#label_${name}`).style.display='none'
+        document.querySelector('.successful').style.visibility = 'visible'
+        document.querySelector('.shadow').style.display = 'block'
+        window.location.href = `http://127.0.0.1:8000/Checkout#`;
     }
 
+    // making sure all required details are entered before purchasing items
     document.querySelector('.pay').addEventListener('click',function(){
         document.querySelectorAll('.input_fields').forEach(function(input_fields){
+            console.log('no')
             if (input_fields.value == ""){
                display_error(input_fields.dataset.name)
             }
             else{
                 clear_error(input_fields.dataset.name) 
             }
-            return false
         })
-        return false
+    })
+
+    // ending transaction
+    document.querySelector('#transaction_end').addEventListener('click',function(){
+        fetch('/post_checkout')
+        .then(response => response.json)
+        .then(data =>{
+            window.location.href = `http://127.0.0.1:8000/`;
+        })
+    })
+
+
+    // mobile navbar
+    document.querySelector('#hamburger').addEventListener('click',function(){
+        document.querySelector('#hamburger').style.display = 'none'
+        document.querySelector('#close').style.display = 'block'
+        document.querySelector('.mobile_nav_link').style.visibility = 'visible'
+        document.querySelector('.shadow').style.cssText = `display:block;top:3%;height:97%`
+    })
+
+
+    document.querySelector('#close').addEventListener('click',function(){
+        document.querySelector('#hamburger').style.display = 'block'
+        document.querySelector('#close').style.display = 'none'
+        document.querySelector('.shadow').style.display = 'none'
+        document.querySelector('.mobile_nav_link').style.visibility = 'hidden'
     })
 
 

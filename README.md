@@ -15,14 +15,11 @@ Users are should be able to:
 ## My process
 
 ### Built with
-
-- CSS custom properties
-- Flexbox
-- Grid
-- Django
-- Javascript
-- Ajax
-- GIT
+- HTML
+- CSS
+- DJANGO
+- JAVASCRIPT
+- AJAX
 
 
 

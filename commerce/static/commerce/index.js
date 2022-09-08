@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(){
 
-        // count items in cart
+    // count items in cart
     async function cartcount(){
         await fetch('/Cart')
         .then(response => response.json())
@@ -42,4 +42,21 @@ document.addEventListener('DOMContentLoaded',function(){
         total = total+parseInt(amount.innerHTML)
     })
     document.querySelector('#total').innerHTML = total
+
+
+    // mobile navbar
+    document.querySelector('#hamburger').addEventListener('click',function(){
+        document.querySelector('#hamburger').style.display = 'none'
+        document.querySelector('#close').style.display = 'block'
+        document.querySelector('.mobile_nav_link').style.visibility = 'visible'
+        document.querySelector('.shadow').style.cssText = `display:block;top:1.5%;height:98.5%`
+    })
+
+
+    document.querySelector('#close').addEventListener('click',function(){
+        document.querySelector('#hamburger').style.display = 'block'
+        document.querySelector('#close').style.display = 'none'
+        document.querySelector('.shadow').style.display = 'none'
+        document.querySelector('.mobile_nav_link').style.visibility = 'hidden'
+    })
 })

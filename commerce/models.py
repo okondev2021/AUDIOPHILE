@@ -41,7 +41,7 @@ class CartItem(models.Model):
     Username = models.ForeignKey('User',on_delete = models.CASCADE,related_name ='usernamecart')
     ProductName = models.ForeignKey('Product',on_delete = models.CASCADE,related_name = 'productcart')
     ProductCount = models.IntegerField(default = 1)
-    FinalCount = models.IntegerField(default = 0)
+    Final_Price = models.IntegerField(default = 0)
 
 
     def __str__(self):

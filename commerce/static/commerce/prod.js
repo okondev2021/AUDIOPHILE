@@ -1,59 +1,56 @@
 document.addEventListener('DOMContentLoaded',function(){
-    function save(name){
+
+    function Save(name,product_Count,finalPrice){
         fetch('/Save/'+`${name}`,{
-            method:'POST',
+            method : 'POST',
             body : JSON.stringify({
-                ProductCount:document.querySelector('#number').innerHTML 
+                ProductCount : product_Count,
+                Final_Price : finalPrice
             })
         })
     }
-    
-    function count(name){
-        fetch('/CostPrice/'+`${name}`,{
-            method:'POST',
-            body : JSON.stringify({
-                FinalCount:document.querySelector(`[data-initemprice = "${name}"]`).innerHTML
-            })
+
+    function onClickButton(button_data_name){
+        // setting item count
+        const item_count = document.querySelector('#number').innerHTML
+        // applying changes
+        document.querySelector(`[data-countname = "${button_data_name}"]`).innerHTML = item_count
+        // get the original price
+        const mainPrice = document.querySelector(`[data-initialPrice = "${button_data_name}"]`).innerHTML 
+        // 
+        var saved_total_price = document.querySelector(`[data-initemprice = "${button_data_name}"]`).innerHTML
+        // multiplying itemcount with the original price
+        saved_total_price = parseInt(item_count) * parseInt(mainPrice)
+        // 
+        document.querySelector(`[data-initemprice = "${button_data_name}"]`).innerHTML = saved_total_price
+        // 
+        var total = 0
+        document.querySelectorAll('.amount').forEach(function(amount){
+            total = total+parseInt(amount.innerHTML)
         })
+        document.querySelector('#total').innerHTML = total
+        // 
+        Save(button_data_name,item_count,saved_total_price)
     }
-    
+
     // increase the number a particular item is added to a cart
-        document.querySelector('#add').addEventListener('click',function(){
-            // incremeant number.innerHTML
-            const numb = document.querySelector('#number').innerHTML
-            document.querySelector('#number').innerHTML = parseInt(numb) + 1
-            // multiply count with main price
-            const countName = document.querySelector('#number').innerHTML 
-            document.querySelector(`[data-countname = "${this.dataset.name}"]`).innerHTML = countName
-            const mainPrice = document.querySelector(`[data-initialPrice = "${this.dataset.name}"]`).innerHTML 
-            document.querySelector(`[data-initemprice = "${this.dataset.name}"]`).innerHTML = parseInt(countName) * parseInt(mainPrice)
-            var total = 0
-            document.querySelectorAll('.amount').forEach(function(amount){
-                total = total+parseInt(amount.innerHTML)
-            })
-            document.querySelector('#total').innerHTML = total
-            save(this.dataset.name)
-            count(this.dataset.name)
-    
-        })
+    document.querySelector('#add').addEventListener('click',function(){
+        // get and increase the product count
+        const count_of_item = document.querySelector('#number').innerHTML
+        // 
+        document.querySelector('#number').innerHTML = parseInt(count_of_item) + 1
+        // 
+        onClickButton(this.dataset.name)
+    })
     
     // decrease the number a particular item is added to a cart
-        document.querySelector('#subtract').addEventListener('click',function(){
-            // decrement number.innerHTML
-            const numb = document.querySelector('#number').innerHTML
-            document.querySelector('#number').innerHTML = parseInt(numb) - 1
-            // multiply count with main price
-            const countName = document.querySelector('#number').innerHTML 
-            document.querySelector(`[data-countname = "${this.dataset.name}"]`).innerHTML = countName
-            const mainPrice = document.querySelector(`[data-initialPrice = "${this.dataset.name}"]`).innerHTML 
-            document.querySelector(`[data-initemprice = "${this.dataset.name}"]`).innerHTML = parseInt(countName) * parseInt(mainPrice)
-            save(this.dataset.name)
-            count(this.dataset.name)
-            var total = 0
-            document.querySelectorAll('.amount').forEach(function(amount){
-                total = total+parseInt(amount.innerHTML)
-            })
-            document.querySelector('#total').innerHTML = total
-        })
+    document.querySelector('#subtract').addEventListener('click',function(){
+        // get and decrease the product count
+        const count_of_item = document.querySelector('#number').innerHTML
+        // 
+        document.querySelector('#number').innerHTML = parseInt(count_of_item) - 1
+        // 
+        onClickButton(this.dataset.name)
+    })
 })
 
