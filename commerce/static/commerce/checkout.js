@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded',function(){
     })
 
     function display_error(name){
+        window.location.href = `http://127.0.0.1:8000/Checkout#`;
         document.querySelector(`#label_${name}`).style.display='block'
     }
 
@@ -82,7 +83,6 @@ document.addEventListener('DOMContentLoaded',function(){
     // making sure all required details are entered before purchasing items
     document.querySelector('.pay').addEventListener('click',function(){
         document.querySelectorAll('.input_fields').forEach(function(input_fields){
-            console.log('no')
             if (input_fields.value == ""){
                display_error(input_fields.dataset.name)
             }

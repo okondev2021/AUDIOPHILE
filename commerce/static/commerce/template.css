@@ -515,7 +515,7 @@ footer #foot-item-5 img{
  .mobile_nav_link{
     display: grid;
     grid-template-columns: 1fr;
-    height: 100vh;
+    height: 130vh;
     width: 100%;
     z-index: 100;
     position: absolute;
@@ -525,8 +525,9 @@ footer #foot-item-5 img{
     background: white;
     justify-self: center;
     justify-items: center;
-    grid-row-gap: 2em;
-    padding: 2em 0
+    grid-row-gap: 4em;
+    padding: 3em 0;
+    padding-top: 4em
 }
 
 .mobile_nav_link div{
@@ -534,20 +535,24 @@ footer #foot-item-5 img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fff;
     background:#fafafa;
-    width: 60%;
-    height:70%;
-    padding-top: -4em;
-    padding-bottom: 1em
+    width: 80%;;
 }
 
-.mobile_nav_link div:nth-child(3){
-    padding-bottom: 1em
+.mobile_nav_link div h3{
+    text-transform: uppercase
 }
 
-.mobile_nav_link div img{
-    width:80px;
+.mobile_nav_link div .link_image{
+    width:100px;
+    margin-top: -4em
+}
+
+.mobile_nav_link div .link_sec{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    padding-top: 1em
 }
 
 .mobile_nav_link div p{

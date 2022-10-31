@@ -73,7 +73,8 @@
               <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>
             </div>
         </div>
-      <!-- mobile_nav -->
+      <!-- mobile_navbar -->
+      <!-- mobile_nav_icon -->
       <div style="transition: all 0.3s ease-in">
         <div class="mobile-top-nav">
           {% if request.user.is_authenticated %}
@@ -93,28 +94,44 @@
         <!-- mobile navbar links -->
         <div class="mobile_nav_link">
           <div>
-            <img src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
+            <img class="link_image" src="{% static 'commerce/images/shared/imageheadphones.png' %}" alt="">
             <h3>Headphones</h3>
-            <a href="{% url 'headphones' %}">
-              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
-            </a>
+            <div class="link_sec">
+              <div>
+                <p><a href="{% url 'headphones' %}" >SHOP</a></p> 
+              </div>
+              <div>
+                <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt="">
+              </div>
+            </div>
           </div>
+          <!--  -->
           <div>
-            <img src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
+            <img  class="link_image" src="{% static 'commerce/images/shared/imagespeakers.png' %}" alt="">
             <h3>Speakers</h3>
-            <a href="{% url 'speaker' %}">
-              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
-            </a>
-            cartinfo
+            <div class="link_sec">
+              <div>
+                <p><a href="{% url 'headphones' %}" >SHOP</a></p> 
+              </div>
+              <div>
+                <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt="">
+              </div>
+            </div>
           </div>
           <div>
-            <img src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
+            <img  class="link_image" src="{% static 'commerce/images/shared/imageearphones.png' %}" alt="">
             <h3>Earphones</h3>
-            <a href="{% url 'earphones' %}">
-              <p>Shop <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt=""></p>
-            </a>
+            <div class="link_sec">
+              <div>
+                <p><a href="{% url 'headphones' %}" >SHOP</a></p> 
+              </div>
+              <div>
+                <img class="arrow" src="{% static 'commerce/images/shared/icon-arrow-right.svg' %}" alt="">
+              </div>
+            </div>
           </div>
         </div>
+        <!--  -->
       </div>
       <hr>
       <!-- hero_texts -->

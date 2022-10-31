@@ -142,9 +142,6 @@ class audiophile():
             User_cart = User.objects.get(username = request.user)
             cartinfo = CartItem.objects.filter(Username=request.user)
             Check_cart = User_cart.Cart.all()  
-            
-            # Product.objects.get.update( = 100000)
-
             if 'removeall' in request.POST:
                 CartItem.objects.filter(Username = request.user).delete()
                 user_name = User.objects.get(username = request.user)
@@ -272,20 +269,23 @@ class audiophile():
 
     def register_view(request):
         if request.method == 'POST':
-            username = request.POST['firstname']
-            first_name = request.POST['firstname']
-            last_name = request.POST['lastname']
-            email = request.POST['email']
-            password = request.POST['password']
-            confirm = request.POST['confirmpassword']
-            if password == confirm:
-                user = User.objects.create_user(username=username,first_name=first_name,last_name=last_name,email=email,password=password)
-                user.save()
-                login(request,user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                messages.info(request,'Password not the same')
-        return render(request,'commerce/register.html')
+            username = request.POST['username']
+            if username == "":
+                messages.info(request,'Enter your details')
+            else:   
+                email = request.POST['email']
+                password = request.POST['password']
+                confirm = request.POST['confirmpassword']
+                if password == confirm:
+                    user = User.objects.create_user(username=username,email=email,password=password)
+                    user.save()
+                    login(request,user)
+                    return HttpResponseRedirect(reverse('index'))
+                else:
+                    messages.info(request,'Password not the same')
+            return render(request,'commerce/register.html')
+        else:
+            return render(request,'commerce/register.html')
 
     def logout_view(request):
         logout(request)

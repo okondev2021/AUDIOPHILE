@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,65 +8,54 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Audiophile</title>
+        <link rel="stylesheet" href="{% static 'commerce/register.css' %}">
+        <script src="{% static 'commerce/auth.js' %}"></script>
     </head>
-    <body class="bg-primary">
-        {% for msg in messages %}
-            <p>{{msg}}</p>
-        {% endfor %}
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
-                                    <div class="card-body">
-                                        <form action="{% url 'register' %}" method="POST">
-                                            {% csrf_token %}
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input name="firstname" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                                                        <label for="inputFirstName">First name</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating">
-                                                        <input name="lastname" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                                                        <label for="inputLastName">Last name</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input name="email" class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input name="password" class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
-                                                        <label for="inputPassword">Password</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input name="confirmpassword" class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
-                                                        <label for="inputPasswordConfirm">Confirm Password</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="submit" value="register">
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{% url 'login' %}">Have an account? Go to login</a></div>
-                                    </div>
-                                </div>
+    <body>
+        <div class="container">
+            <div class="main">
+                <div class="left">
+                    <div class="image">
+                        <img id="brown_logo1" src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
+                    </div>
+                    <div class="text">
+                        <h1> Let's Get Started</h1>
+                    </div>
+                </div>
+                <div class="right">
+                    <h1>Registration</h1>
+                    {% for msg in messages %}
+                        <div class="error_msg">
+                            <div id="error_1">
+                                <p>{{msg}}</p>
+                            </div>
+                            <div id="error_2">
+                                <img id="close_icon" src="{% static 'commerce/images/black_icon-close.svg' %}" alt="">
                             </div>
                         </div>
-                    </div>
-                </main>
+                    {% endfor %}
+                    <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="input_div">
+                            <label for="username">Username</label>
+                            <input name="username" type="text" placeholder="Enter your Username" />
+                        </div>
+                        <div class="input_div">
+                           <label for="email">Email</label>
+                            <input name="email" type="email" placeholder="name@example.com" />
+                        </div>
+                        <div class="input_div">
+                            <label for="password">Password</label>
+                            <input name="password" type="password" placeholder="Create a password" />
+                        </div>
+                        <div class="input_div">
+                            <label for="password">Confirm Password</label>
+                            <input type="password" placeholder="confirm password" name="confirmpassword"/>
+                        </div>
+                        <input type="submit" value="register">
+                    </form>
+                    <p class="login_link">Already have an account? <a href="{% url 'login' %}">login here</a></p>
+                </div>
             </div>
         </div>
     </body>
