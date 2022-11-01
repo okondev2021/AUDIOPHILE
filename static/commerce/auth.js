@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded',function(){
-    document.querySelector('#close_icon').addEventListener('click',function(){
-        document.querySelector('.error_msg').style.display = 'none'
-    })
+    if(!document.querySelector('#hidden_input').value === 'AudioAnonymous'){
+        document.querySelector('#close_icon').addEventListener('click',function(){
+            document.querySelector('.error_msg').style.display = 'none'
+        })
+    }
 })

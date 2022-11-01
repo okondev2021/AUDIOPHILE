@@ -50,7 +50,7 @@ class audiophile():
                 "product6":product6,
             }
             return render(request,'commerce/index.html',context)
-
+            
     def headphones(request):
         product1 = Product.objects.get(Product_Name = 'XX59 HEADPHONES')
         product2 = Product.objects.get(Product_Name = 'XX99 MARK ONE HEADPHONES')
@@ -239,9 +239,13 @@ class audiophile():
 
     @csrf_exempt
     def cart(request):
-        users_cart = User.objects.get(username = request.user)
-        users_cartcount = users_cart.Cart.count()
-        return JsonResponse({'cartcount':users_cartcount})
+        try:
+            users_cart = User.objects.get(username = request.user)
+            users_cartcount = users_cart.Cart.count()
+            return JsonResponse({'cartcount':users_cartcount})
+        except User.DoesNotExist:
+            return JsonResponse({'cartcount':''})
+
 
     @csrf_exempt
     # GETS THE NUMBER OF ITEMS IN USERS CART

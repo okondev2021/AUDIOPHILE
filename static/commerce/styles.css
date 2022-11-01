@@ -165,13 +165,28 @@
     width: 100px;
     cursor: pointer;
     border-radius: 5px
-  }
+}
 
-  .top-nav-right button a{
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem
-  }
+.top-nav-right button a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem
+}
+
+.mobile-top-nav button{
+    background: #d87d4a;
+    border: none;
+    height: 35px;
+    width: 75px;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.mobile-top-nav button a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem
+}
 
 .top .top-text{
     display: flex;

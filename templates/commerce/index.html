@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="container">
+    <input id="hidden_input" type="hidden" value="{{request.user}}">
     <div class="shadow"></div>
     <header class="top">
       <!-- top_nav -->
@@ -70,7 +71,13 @@
                 </div>
             </div>
             <div id="checkout">
-              <button style="cursor: pointer;"><a href="{% url 'checkout' %}">CHECKOUT</a></button>
+              <button style="cursor: pointer;">
+                {% if request.user.is_authenticated %}
+                  <a href="{% url 'checkout' %}">CHECKOUT</a>
+                {% else %}
+                {% endif %}
+                  <a href="">CHECKOUT</a>
+              </button>
             </div>
         </div>
       <!-- mobile_navbar -->
@@ -82,7 +89,10 @@
               <img style="cursor: pointer;" id="mobile_cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
               <sup id="mobilesup"></sup>
             </div>
+          {% else %}
+            <button><a href="{% url 'login' %}">Sign in</a></button>
           {% endif %}
+        
           <div class="mobile-top-nav-center">
             <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
           </div>

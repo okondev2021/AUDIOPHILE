@@ -45,12 +45,10 @@
       <!-- mobile_nav -->
       <div style="transition: all 0.3s ease-in">
           <div class="mobile-top-nav">
-            {% if request.user.is_authenticated %}
               <div class="mobile-top-nav-left">
                 <img style="cursor: pointer;" id="mobile_cartimage" src="{% static 'commerce/images/shared/cart.svg' %}" alt="nothing">
                 <sup id="mobilesup"></sup>
               </div>
-            {% endif %}
             <div class="mobile-top-nav-center">
               <img src="{% static 'commerce/images/shared/logo.svg' %}" alt="">
             </div>
