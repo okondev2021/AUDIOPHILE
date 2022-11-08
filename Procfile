@@ -1,1 +1,2 @@
-web gunicorn audiophile.wsgi:application --log-file -
+web: gunicorn audiophile.wsgi --log-file -
+
