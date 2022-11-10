@@ -328,6 +328,6 @@ class audiophile():
         allProducts = Product.objects.all()
         if request.method =='POST':
             prodTitle = request.POST['producttitle']
-            Product.objects.get(Title = prodTitle).delete()
+            Product.objects.filter(Title = prodTitle).delete()
         return render(request,'commerce/adminproduct.html',{'allProducts':allProducts})
     
