@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audiophile Admin</title>
+    <link rel="stylesheet" href="{% static 'commerce/audioadmin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top_nav">
+            <div class="left">
+                <h1>Audiophile administration</h1>
+            </div>
+            <div class="right">
+                <h1>Welcome, <span>{{request.user}}</span>. <a href="{% url 'index' %}">view site</a> <a href="{% url 'admin_create'  %}">Admin-site</a></h1>
+            </div>
+        </div>
+        <main id="adminproduct">
+            <h2>All product available</h2>
+            <div class="products">
+                {% for allProduct in allProducts %}
+                    <section>
+                        <div>
+                            <p>{{allProduct.Title}}</p>
+                        </div>
+                       <div id="delete_div">
+                            <form action="{% url 'adminproduct' %}" method="POST">
+                                {% csrf_token %}
+                                <input value="{{allProduct.Title}}" type="hidden" name="producttitle">
+                                <input type="submit" value="Delete">
+                            </form>
+                       </div>
+                    </section>
+                {% empty %}
+                    <p>No products yet</p>
+                {% endfor %}
+
+                {{allProducts.count}} Products
+            </div>
+        </main>
+    </div>
+</body>
+</html>

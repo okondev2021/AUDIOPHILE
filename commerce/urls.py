@@ -23,5 +23,6 @@ urlpatterns = [
     path('post_checkout',audiophile.post_checkout,name='post_checkout'),
 
     # audiophile-admin url
-    path('Audiophile_admin',audiophile.audiophile_admin,name='audiophile_admin')
+    path('Admin_Product',audiophile.adminproduct,name='adminproduct'),
+    path('Admin_create',audiophile.admin_create,name='admin_create'),
 ]

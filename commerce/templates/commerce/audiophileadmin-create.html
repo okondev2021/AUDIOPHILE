@@ -15,12 +15,12 @@
                 <h1>Audiophile administration</h1>
             </div>
             <div class="right">
-                <h1>Welcome, <span>{{request.user}}</span>. <a href="{% url 'index' %}">view site</a></h1>
+                <h1>Welcome, <span>{{request.user}}</span>. <a href="{% url 'index' %}">view site</a> <a href="{% url 'adminproduct'  %}">View Products</a></h1>
             </div>
         </div>
         <main>
             <h2>Add Product</h2>
-            <form action="{% url 'audiophile_admin' %}" method="POST" enctype="multipart/form-data">
+            <form action="{% url 'admin_create' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="input_field">
                     <label for="">Title:</label>

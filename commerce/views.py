@@ -267,7 +267,7 @@ class audiophile():
             if user is not None:
                 login(request,user)
                 if username == 'Audiophileadmin':
-                    return HttpResponseRedirect(reverse('audiophile_admin'))
+                    return HttpResponseRedirect(reverse('admin_create'))
                 else:
                     return HttpResponseRedirect(reverse('index'))
             else:
@@ -299,7 +299,7 @@ class audiophile():
         return HttpResponseRedirect(reverse('index'))
     
     # audiophile-admin
-    def audiophile_admin(request):
+    def admin_create(request):
         if request.user.is_authenticated:
             if request.user.username == 'Audiophileadmin':
                 if request.method == 'POST':
@@ -314,8 +314,20 @@ class audiophile():
                     sideimage3 = request.FILES['sideimage3']
                     product = Product.objects.create(Title = title,Product_Name = productname,Product_Description = productdescription,Product_Features=productfeature,Amount=amount,Product_Image=productimage,SideImage_1 = sideimage1,SideImage_2 = sideimage2,SideImage_3 = sideimage3)
                     product.save()
-                return render(request,'commerce/audiophile-admin.html')
+                return render(request,'commerce/audiophileadmin-create.html')
             else:
                 return HttpResponse('RESTRICTED SPACE')
         else:
             return HttpResponseRedirect(reverse('login'))
+    
+    def adminproduct(request):
+        allProducts = Product.objects.all()
+        return render(request,'commerce/adminproduct.html',{'allProducts':allProducts})
+    
+    def adminproduct(request):
+        allProducts = Product.objects.all()
+        if request.method =='POST':
+            prodTitle = request.POST['producttitle']
+            Product.objects.get(Title = prodTitle).delete()
+        return render(request,'commerce/adminproduct.html',{'allProducts':allProducts})
+    
