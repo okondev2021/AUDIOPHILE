@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-
+    
     const logged_user = document.querySelector('#hidden_input').value 
     if(logged_user == 'AnonymousUser'){
 

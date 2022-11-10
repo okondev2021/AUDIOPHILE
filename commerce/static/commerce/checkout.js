@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded',function(){
     })
 
     function display_error(name){
-        window.location.href = `http://127.0.0.1:8000/Checkout#`;
+        window.location.href = `https://audiophiledjango.herokuapp.com/Checkout#`;
         document.querySelector(`#label_${name}`).style.display='block'
     }
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded',function(){
         document.querySelector(`#label_${name}`).style.display='none'
         document.querySelector('.successful').style.visibility = 'visible'
         document.querySelector('.shadow').style.display = 'block'
-        window.location.href = `http://127.0.0.1:8000/Checkout#`;
+        window.location.href = `https://audiophiledjango.herokuapp.com/Checkout#`;
     }
 
     // making sure all required details are entered before purchasing items
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded',function(){
         fetch('/post_checkout')
         .then(response => response.json)
         .then(data =>{
-            window.location.href = `http://127.0.0.1:8000/`;
+            window.location.href = `https://audiophiledjango.herokuapp.com/`;
         })
     })
 

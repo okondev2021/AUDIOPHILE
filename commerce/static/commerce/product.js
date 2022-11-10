@@ -47,14 +47,14 @@ document.addEventListener('DOMContentLoaded',function(){
                     newsup1 =  parseInt(sup1.innerHTML) + 1
                     document.querySelector('#sup').innerHTML = newsup1
                     document.querySelector('#supp').innerHTML = newsup1
-                    window.location.href = `http://127.0.0.1:8000/Product/${this.dataset.name}`;             
+                    // window.location.href = `http://127.0.0.1:8000/Product/${this.dataset.name}`;             
                 }
                 else{
                     var sup1 = document.querySelector('#sup')
                     newsup1 = parseInt(sup1.innerHTML) - 1
                     document.querySelector('#sup').innerHTML = newsup1
                     document.querySelector('#supp').innerHTML = newsup1
-                    window.location.href = `http://127.0.0.1:8000/Product/${this.dataset.name}`;
+                    // window.location.href = `http://127.0.0.1:8000/Product/${this.dataset.name}`;
                 }
            }
            else{ 
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded',function(){
                         productname_incart.setAttribute('data-item',`${this.dataset.name}`)
 
                         product_link.style.cssText = `color: black;text-decoration:none`
-                        product_link.setAttribute('href',`Product/${this.dataset.name}`)
+                        product_link.setAttribute('href',`/Product/${this.dataset.name}`)
 
                         product_link.innerHTML = data.iteminfos_Product_Name
                         product_span.innerHTML = `${data.iteminfos_ProductCount}`
