@@ -266,7 +266,10 @@ class audiophile():
             user = authenticate(request,username=username,password =password)
             if user is not None:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                if username == 'Audiophileadmin':
+                    return HttpResponseRedirect(reverse('audiophile_admin'))
+                else:
+                    return HttpResponseRedirect(reverse('index'))
             else:
                 messages.info(request,'Invalid credentials')
         return render(request,'commerce/login.html')
@@ -294,3 +297,25 @@ class audiophile():
     def logout_view(request):
         logout(request)
         return HttpResponseRedirect(reverse('index'))
+    
+    # audiophile-admin
+    def audiophile_admin(request):
+        if request.user.is_authenticated:
+            if request.user.username == 'Audiophileadmin':
+                if request.method == 'POST':
+                    title = request.POST['title']
+                    productname = request.POST['productname']
+                    productdescription = request.POST['productdescription']
+                    productfeature = request.POST['productfeature']
+                    amount = request.POST['amount']
+                    productimage = request.FILES['productimage']
+                    sideimage1 = request.FILES['sideimage1']
+                    sideimage2 = request.FILES['sideimage2']
+                    sideimage3 = request.FILES['sideimage3']
+                    product = Product.objects.create(Title = title,Product_Name = productname,Product_Description = productdescription,Product_Features=productfeature,Amount=amount,Product_Image=productimage,SideImage_1 = sideimage1,SideImage_2 = sideimage2,SideImage_3 = sideimage3)
+                    product.save()
+                return render(request,'commerce/audiophile-admin.html')
+            else:
+                return HttpResponse('RESTRICTED SPACE')
+        else:
+            return HttpResponseRedirect(reverse('login'))

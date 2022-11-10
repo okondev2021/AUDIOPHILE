@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audiophile Admin</title>
+    <link rel="stylesheet" href="{% static 'commerce/audioadmin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top_nav">
+            <div class="left">
+                <h1>Audiophile administration</h1>
+            </div>
+            <div class="right">
+                <h1>Welcome, <span>{{request.user}}</span>. <a href="{% url 'index' %}">view site</a></h1>
+            </div>
+        </div>
+        <main>
+            <h2>Add Product</h2>
+            <form action="{% url 'audiophile_admin' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input_field">
+                    <label for="">Title:</label>
+                    <input name="title" type="text">
+                </div>
+                <div class="input_field">
+                    <label for="">Product Name:</label>
+                    <input name="productname" type="text">
+                </div>
+                <div class="input_field">
+                    <label for="">Product Description:</label>
+                    <input name="productdescription" type="text">
+                </div>
+                <div class="input_field">
+                    <label for="">Product Feature:</label>
+                    <input name="productfeature" type="text">
+                </div>
+                <div class="input_field">
+                    <label for="">Amount:</label>
+                    <input name="amount" type="number">
+                </div>
+                <div class="input_field">
+                    <label for="">Product Image:</label>
+                    <input name="productimage" type="file">
+                </div>
+                <div class="input_field">
+                    <label for="">Side Image 1:</label>
+                    <input name="sideimage1" type="file">
+                </div>
+                <div class="input_field">
+                    <label for="">Side Image 2:</label>
+                    <input name="sideimage2" type="file">
+                </div>
+                <div class="input_field">
+                    <label for="">Side Image 3:</label>
+                    <input name="sideimage3" type="file">
+                </div>
+                <!--  -->
+                <div class="save_div">
+                    <div class="submit_div">
+                        <input type="submit" value="SAVE">
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

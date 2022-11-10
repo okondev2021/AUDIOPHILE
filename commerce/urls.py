@@ -21,4 +21,7 @@ urlpatterns = [
     path('GetItem/<str:name>',audiophile.getitem,name='getitem'),
     path('checkout_details',audiophile.checkout_details,name='checkout_details'),
     path('post_checkout',audiophile.post_checkout,name='post_checkout'),
+
+    # audiophile-admin url
+    path('Audiophile_admin',audiophile.audiophile_admin,name='audiophile_admin')
 ]

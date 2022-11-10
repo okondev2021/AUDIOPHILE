@@ -184,7 +184,8 @@ body{
     .container .main{
         width: 100%;
         border-radius: none;
-        display: flex
+        display: flex;
+        box-shadow: none
     }
 
     .main .left{
