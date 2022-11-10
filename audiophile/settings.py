@@ -80,17 +80,15 @@ WSGI_APPLICATION = 'audiophile.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd8k0nqhm8jr0go',
+        'HOST': 'ec2-23-20-140-229.compute-1.amazonaws.com',
+        'PORT':5432,
+        'USER' : 'btrgaywvojnagb',
+        'PASSWORD' : 'dea79844ca4ab832b36f325d33ff8d768a55e8820fef5152d67bc37dc4e8533d'
     }
 }
 
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'd8k0nqhm8jr0go',
-        # 'HOST': 'ec2-23-20-140-229.compute-1.amazonaws.com',
-        # 'PORT':5432,
-        # 'USER' : 'btrgaywvojnagb',
-        # 'PASSWORD' : 'dea79844ca4ab832b36f325d33ff8d768a55e8820fef5152d67bc37dc4e8533d'
 
 
 # Password validation
