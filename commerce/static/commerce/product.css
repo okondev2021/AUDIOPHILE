@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 button{
@@ -198,7 +199,8 @@ main .top .top-right h1{
 }
 
 main .top .top-right p{
-    width: 85%
+    width: 85%;
+    line-height: 25px
 }
 
 main .top .top-right b{
@@ -256,7 +258,7 @@ main .top .features h3{
 
 main .top .features p{
     margin-top: 1em;
-    line-height: 1.3em
+    line-height: 25px
 }
 
 main .top .box{
@@ -408,7 +410,8 @@ main .others .others_list .info button a{
 
 .bringing .bringing-left p{
     width: 81%;
-    margin-top: 1em
+    margin-top: 1em;
+    line-height: 25px
 }
 
 .bringing .bringing-left span{

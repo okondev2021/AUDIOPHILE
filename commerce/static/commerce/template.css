@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 .container{
@@ -235,7 +236,8 @@ header .head{
 
 .bringing .bringing-left p{
     width: 81%;
-    margin-top: 1em
+    margin-top: 1em;
+    line-height: 25px
 }
 
 .bringing .bringing-left span{
