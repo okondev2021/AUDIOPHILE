@@ -44,6 +44,18 @@
                 {{allProducts.count}} Products
             </div>
         </main>
+
+        <div class="user">
+            {% for alluser in allusers %}
+                <div>
+                    <p>{{allusers.username}}</p>
+                </div>
+            {% empty %}
+                <p>No user</p>
+            {% endfor %}
+
+
+        </div>
     </div>
 </body>
 </html>
