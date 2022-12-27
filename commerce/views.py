@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
 from .models import Product,User,CartItem
 import json
+import base64
 
 # Create your views here.
 class audiophile():
@@ -308,11 +309,25 @@ class audiophile():
                     productdescription = request.POST['productdescription']
                     productfeature = request.POST['productfeature']
                     amount = request.POST['amount']
+                    # conveting uploaded images to 64byte strings
+                    # productimage
                     productimage = request.FILES['productimage']
+                    productimage_bytes = productimage.read()
+                    productimage_base64 = base64.b64encode(productimage_bytes).decode()
+                    # sideimage1
                     sideimage1 = request.FILES['sideimage1']
+                    sideimage1_bytes = sideimage1.read()
+                    sideimage1_base64 = base64.b64encode(sideimage1_bytes).decode()
+                    # sideimage2
                     sideimage2 = request.FILES['sideimage2']
+                    sideimage2_bytes = sideimage2.read()
+                    sideimage2_base64 = base64.b64encode(sideimage2_bytes).decode()
+                    # sideimage3
                     sideimage3 = request.FILES['sideimage3']
-                    product = Product.objects.create(Title = title,Product_Name = productname,Product_Description = productdescription,Product_Features=productfeature,Amount=amount,Product_Image=productimage,SideImage_1 = sideimage1,SideImage_2 = sideimage2,SideImage_3 = sideimage3)
+                    sideimage3_bytes = sideimage3.read()
+                    sideimage3_base64 = base64.b64encode(sideimage3_bytes).decode()
+                    # save
+                    product = Product.objects.create(Title = title,Product_Name = productname,Product_Description = productdescription,Product_Features=productfeature,Amount=amount,Product_Image=productimage_base64,SideImage_1 = sideimage1_base64,SideImage_2 = sideimage2_base64,SideImage_3 = sideimage3_base64)
                     product.save()
                 return render(request,'commerce/audiophileadmin-create.html')
             else:

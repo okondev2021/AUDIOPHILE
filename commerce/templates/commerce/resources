@@ -1,0 +1,12 @@
+<img style="height: 400px;width: 400px" src="data:image/jpg;base64,{{userdetail.Image}}" alt="">
+
+
+def index(request):
+    if request.method == 'POST':
+        name = request.POST['username']
+        image = request.FILES['image']
+        image_bytes = image.read()
+        image_base64 = base64.b64encode(image_bytes).decode()
+        user = UserDetails.objects.create(Name = name,Image = image_base64)
+        user.save()
+    return render(request,'imageapp/index.html')

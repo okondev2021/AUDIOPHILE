@@ -139,7 +139,7 @@
         <main>
             <div class="top">
                 <div class="top-left">
-                    <img src="{{product.Product_Image.url}}" alt="">
+                    <img src="data:image/jpg;base64,{{product.Product_Image}}" alt="">
                 </div>
                 <div class="top-right">
                     <h1 data-name="{{product.Product_Name}}" id="productname">{{product.Product_Name}}</h1>
@@ -176,9 +176,9 @@
                 </div>
             </div>
             <div st class="sub">
-                <div style="background-image: url('{{product.SideImage_1.url}}')" class="sub_1"></div>
-                <div style="background-image: url(' {{product.SideImage_2.url}}')" class="sub_2"></div>
-                <div style="background-image: url('{{product.SideImage_3.url}}')" class="sub_3"></div>
+                <div style="background-image: url('data:image/jpg;base64,{{product.SideImage_1}}')" class="sub_1"></div>
+                <div style="background-image: url('data:image/jpg;base64,{{product.SideImage_2}}')" class="sub_2"></div>
+                <div style="background-image: url('data:image/jpg;base64,{{product.SideImage_3}}')" class="sub_3"></div>
             </div>
 
             <div class="others">  
@@ -186,7 +186,7 @@
                 <div class="others_list">
                     {% for other_product in other_products %}
                         <div>
-                            <img src="{{other_product.Product_Image.url}}" alt="">
+                            <img src="data:image/jpg;base64,{{other_product.Product_Image}}" alt="">
                             <div class="info">
                                 <h3>{{other_product.Title}}</h3>
                                 <button><a href="{% url 'product' other_product.Product_Name %}">SEE PRODUCT</a></button>

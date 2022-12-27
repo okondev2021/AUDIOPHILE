@@ -16,10 +16,10 @@ class Product(models.Model):
     Product_Description = models.CharField(max_length = 10000)
     Product_Features = models.CharField(max_length = 10000)
     Amount = models.IntegerField()
-    Product_Image =  models.ImageField(upload_to='images/',null=True)
-    SideImage_1 =  models.ImageField(upload_to='images/',null=True)
-    SideImage_2 =  models.ImageField(upload_to='images/',null=True)
-    SideImage_3 =  models.ImageField(upload_to='images/',null=True)
+    Product_Image =  models.CharField(max_length = 700000)
+    SideImage_1 =  models.CharField(max_length = 700000)
+    SideImage_2 =  models.CharField(max_length = 700000)
+    SideImage_3 =  models.CharField(max_length = 700000)
 
     def __str__(self):
         return self.Title
