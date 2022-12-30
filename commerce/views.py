@@ -167,8 +167,7 @@ class audiophile():
         return render (request,'commerce/checkout.html',{'cartinfo':cartinfo})
 
 
-    # APIS FUNCTIONS
-
+    # APIS FUNCTIONS                 
     # REMOVES ALL ITEMS IN USERS CART AFTER ITEMS HAVE BEEN PURCHASED AND TRANSACTION IS SUCCESSFUL
     @csrf_exempt
     def post_checkout(request):
@@ -259,7 +258,7 @@ class audiophile():
             return JsonResponse({'status':0,'count':'1'})  
 
 
-#    AUTHENTICATION 
+   #AUTHENTICATION 
     def login_view(request):
         if request.method == 'POST':
             username = request.POST['username']
@@ -299,6 +298,8 @@ class audiophile():
         logout(request)
         return HttpResponseRedirect(reverse('index'))
     
+
+    # ADMIN SECTIO
     # audiophile-admin
     def admin_create(request):
         if request.user.is_authenticated:
@@ -337,13 +338,8 @@ class audiophile():
     
     def adminproduct(request):
         allProducts = Product.objects.all()
-        return render(request,'commerce/adminproduct.html',{'allProducts':allProducts})
-    
-    def adminproduct(request):
-        allProducts = Product.objects.all()
         allusers =  User.objects.all()
         if request.method =='POST':
             prodTitle = request.POST['producttitle']
             Product.objects.filter(Title = prodTitle).delete()
         return render(request,'commerce/adminproduct.html',{'allProducts':allProducts,'allusers':allusers})
-    
