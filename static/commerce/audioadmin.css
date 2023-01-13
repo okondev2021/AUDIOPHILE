@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.container{
+    background: #121212;
+    min-height: 100vh;
+    padding-bottom: 2em
+}
+
+/* nav */
+
+.container .top_nav{
+    display: flex;
+    justify-content: space-between;
+    background: #417690;
+    color: #eee;
+    padding: 1em;;
+    padding-left: 3em;
+    align-items: center
+}
+
+.container .top_nav .left h1{
+    color: #f5dd50;
+    font-weight: lighter;
+    font-size: 2rem
+}
+
+.container .top_nav .right h1{
+    font-weight: lighter;
+    font-size: 1.2rem;
+    color: #fffccc
+}
+
+.container .top_nav .right h1 span{
+    text-transform: uppercase;
+    font-weight: bold
+}
+
+.container .top_nav .right h1 a{
+    color: #eee
+}
+
+/* main */
+
+.container main{
+    color: #eee;
+    padding: 1em 3em 0 3em
+}
+
+.container main h2{
+    font-weight: lighter
+}
+
+.container main form{
+    margin-top: 2em
+}
+
+.container main form .input_field{
+    border-bottom: 2px solid #35353535;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 0.3fr 2fr;
+    align-items: center
+}
+
+.container main form .input_field  label{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container main form .input_field input{
+    border: 1px solid rgba(238, 238, 238, 0.483);
+    background: transparent;
+    height: 30px;
+    width: 20em;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+    padding-left: 10px
+}
+
+.container main form .input_field  input:focus{
+    border: 1px solid rgb(238, 238, 238);
+}
+
+.container main form .input_field input[type="file"]{
+    border: none
+}
+
+.container main form .save_div{
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container main form .save_div .submit_div{
+    background: #212121;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em 0;
+    border: 5px;
+    padding-right: 1em
+}
+
+.container main form .save_div .submit_div input[type="submit"]{
+    background: #417690;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+@media (max-width:790px){
+
+    .container .top_nav{
+        
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    .container .top_nav .left h1{
+        color: #f5dd50;
+        font-weight: lighter;
+        font-size: 1.5rem
+    }
+    
+    .container .top_nav .right h1{
+        font-weight: lighter;
+        font-size: 1rem;
+        margin-top: 0.6em
+    }  
+
+    /* main */
+
+    .container main{
+        color: #eee;
+        padding: 1em
+    }
+
+    .container main h2{
+        padding-left: 15px
+    }
+
+    .container main form .input_field{
+        grid-template-columns: 0.6fr 2fr;
+    }
+
+}
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+@media (max-width:450px){
+
+    .container{
+        padding-bottom: 1em
+    }
+
+    /* nav */
+
+    .container .top_nav{
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0
+    }
+
+    .container .top_nav .left h1{
+        color: #f5dd50;
+        font-weight: lighter;
+        font-size: 1.5rem
+    }
+    
+    .container .top_nav .right h1{
+        font-weight: lighter;
+        font-size: 1rem;
+        margin-top: 0.6em
+    }
+
+    /* main */
+
+    .container main{
+        padding: 1em 0;
+    }
+
+    .container main h2{
+        padding-left: 15px
+    }
+
+    .container main form{
+        padding: 0 1em
+    }
+
+    .container main form .input_field{
+        border-bottom: 2px solid #35353535;
+        padding: 15px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .container main form .input_field input{
+        border: 1px solid rgba(238, 238, 238, 0.483);
+        background: transparent;
+        height: 36px;
+        width: 100%;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-top: 10px
+    }
+
+    .container main form .save_div .submit_div{
+        justify-content: center;
+        padding-right: 0
+    }
+    
+    .container main form .save_div .submit_div input[type="submit"]{
+        padding:   15px;
+        width: 80%
+    }
+
+}
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+#adminproduct .products{
+    padding-top: 1.5em
+}
+
+#adminproduct .products section{
+    width: 100%;
+    background:  #212121;
+    margin-bottom: 1em;
+    padding: 1em 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#adminproduct .products section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#adminproduct .products section form{
+    padding: 0;
+    margin: 0
+}
+
+#adminproduct .products section form input[type="submit"]{
+    background: #417690;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width:450px){
+
+    #adminproduct .products section{
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        flex-direction: column
+    }
+
+    #delete_div{
+        margin-top: 1em
+    }
+}

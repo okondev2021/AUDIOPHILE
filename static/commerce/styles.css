@@ -1,0 +1,1013 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.container{
+    position: relative;
+}
+
+.mobile_nav_link{
+    display: none
+}
+
+.shadow{
+    background: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    display: none
+}
+
+#close{
+    display: none
+}
+
+#cart{
+    z-index: 1000;
+    right: 4%;
+    top: 2%;
+    background: #fff;
+    position: absolute;;
+    width: 30%;
+    border-radius: 10px;
+    display: none;
+    padding: 1em;
+    color: black
+  }
+
+#cart .topp{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#cart .topp img{
+    cursor: pointer;
+}
+
+#cart .bottom{
+  margin-top: 1em
+}
+
+#cart .bottom .one,#cart .bottom .two,#cart .bottom .three{
+    display: flex;
+    justify-content: space-between
+}
+
+#cart .bottom .one form input{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+#cart .bottom .two{
+  margin-top: 1em;
+  padding: 0;
+}
+
+#cart .bottom .two div p{
+  width: 100%;
+  margin-top: 1em;
+  padding: 0;
+}
+
+#cart .bottom .three{
+    margin-top: 0.5em
+}
+
+#cart .bottom .three #total{
+  width: 100%;
+}
+
+#cart #checkout{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2em
+}
+
+#cart #checkout button{
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: #d87d4a;
+    border: none;
+}
+
+#cart #checkout button a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff
+}
+
+#cart hr{
+    margin-top: 1em
+}
+
+#mobilesup{
+    color: #d87d4a
+}
+
+/* header */
+.top{
+    background-image: url('./images/home/image-hero-desktop.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0 7em;
+    background-attachment: fixed
+}
+
+.top .top-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.top .mobile-top-nav{
+    display: none
+}
+
+.top .top-nav .top-nav-left img, .top .top-nav .top-nav-right img{
+    cursor: pointer;
+}
+
+.top .top-nav .top-nav-left img, .top .top-nav .top-nav-right sup{
+    color: #d87d4a
+}
+
+.top .top-nav .top-nav-center nav ul{
+    list-style-type: none
+}
+
+.top .top-nav .top-nav-center nav ul li{
+    display: inline-flex;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 0.8rem
+}
+
+.top .top-nav .top-nav-center nav ul li a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.top-nav-right button{
+    background: #d87d4a;
+    border: none;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.top-nav-right button a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem
+}
+
+.mobile-top-nav button{
+    background: #d87d4a;
+    border: none;
+    height: 35px;
+    width: 75px;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.mobile-top-nav button a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem
+}
+
+.top .top-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    height: 88%;
+}
+
+.top .top-text h3{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: #fafafa64;
+}
+
+.top .top-text h1{
+    font-size: 3.5rem;
+    margin-top: 0.3em;
+    text-transform: uppercase;
+    width: 40%
+}
+
+.top .top-text p{
+    margin-top: 1em;
+    width: 28%;
+    font-size: 0.9rem;
+    line-height: 20px
+}
+
+.top .top-text button{
+    margin-top: 1.5em;
+    background: #d87d4a;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    height: 45px;
+}
+
+.top .top-text button a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+/* mid */
+
+.mid{
+    padding:7em;
+    padding-bottom: 2em
+}
+
+.mid .top-mid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3em
+}
+
+.mid .top-mid div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fafafa;
+    padding-bottom: 1.5em
+}
+
+.mid .top-mid div img{
+    width:180px;
+    margin-top: -4em
+}
+
+.mid .top-mid div p{
+    margin-top: 1em;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.mid .top-mid .arrow{
+    width: 10px;
+    height: 12px;
+    cursor: pointer;
+    margin-top: 0em;
+    margin-left: 0.3em
+}
+
+.mid .top-mid a{
+    color: black;
+    text-decoration: none
+}
+
+.mid .speaker1-mid{
+    margin-top: 4em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 8em;
+    background: #d87d4a;  
+    background-image:url('./images/home/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.mid .speaker1-mid img{
+    height: 450px;
+    padding-top: 3em
+}
+  
+.mid .speaker1-mid .speaker1-right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.mid .speaker1-mid .speaker1-right h1{
+    text-transform: uppercase;
+    font-size: 3rem;
+    width: 50%;
+    line-height: 65px
+}
+
+.mid .speaker1-mid .speaker1-right p{
+    margin-top: 0.6em;
+    width: 70%
+}
+
+.mid .speaker1-mid .speaker1-right button{
+    border: none;
+    background: #272727;
+    width: 35%;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.mid .speaker1-mid .speaker1-right button a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+.mid .speaker2-mid{
+    margin-top: 4em;
+    background: url('./images/home/image-speaker-zx7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    padding-left: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.mid .speaker2-mid h1{
+    font-size: 2.5rem;
+    text-transform: uppercase
+}
+
+.mid .speaker2-mid button{
+    border: 1px solid #272727;
+    background: white;
+    width: 20%;
+    height: 50px;
+    cursor: pointer
+}
+
+.mid .speaker2-mid button a{
+    color: #272727;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+.mid .earphones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4em;
+    grid-column-gap: 1em
+}
+
+.mid .earphones div{
+    height: 50vh;
+}
+
+.mid .earphones .earphones-left{
+    background-image: url('./images/home/earphones.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.mid .earphones .earphones-right{
+    background: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2em
+}
+
+.mid .earphones .earphones-right h1{
+    font-size: 2rem;
+    text-transform: uppercase
+}
+
+.mid .earphones .earphones-right button{
+    border: 1px solid #272727;
+    background: white;
+    width: 30%;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 1em
+}
+
+.mid .earphones .earphones-right button a{
+    color: #272727;
+    text-decoration: none;
+    text-transform: uppercase
+}
+
+.bringing{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4em;
+    grid-column-gap: 5em
+}
+
+.bringing div{
+    height: 90vh;
+}
+
+.bringing .bringing-left{
+    display: flex;
+    justify-content:center;
+    flex-direction: column
+}
+
+.bringing .bringing-left h1{
+    font-size: 2.5rem;
+    text-transform: uppercase
+}
+
+.bringing .bringing-left p{
+    width: 81%;
+    margin-top: 1em;
+    line-height: 25px
+}
+
+.bringing .bringing-left span{
+    color: #d87d4a
+}
+
+.bringing .bringing-right{
+    background: url('./images/shared/gearimage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* footer */
+
+footer{
+    padding: 4em 7em;
+    background: #000000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 2.5em
+}
+
+footer .foot-item nav ul{
+    list-style-type: none;
+}
+
+footer .foot-item nav ul li{
+    display: inline-flex;
+    margin-left: 2em;
+    margin-right: 0em;
+    font-size: 0.8rem
+}
+
+footer .foot-item nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+footer .foot-item p{
+    color: #ffffff;
+}
+
+footer #foot-item-3 p{
+    width: 40%;
+    line-height: 1.4em
+}
+
+footer #foot-item-3{
+    grid-column: 1/3
+}
+
+footer #foot-item-2{
+    justify-content: flex-end;
+    justify-self: flex-end;
+    justify-items: flex-end
+}
+
+footer #foot-item-5{
+    justify-content: flex-end;
+    justify-self: flex-end;
+    justify-items: flex-end
+}
+
+footer #foot-item-5 img{
+    margin-left: 2em;
+    height: 20px;
+    width: 20px
+}   
+
+
+
+@media (max-width:767px){
+
+    /* mobile nav_links */
+    .mobile_nav_link{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 130vh;
+        width: 100%;
+        z-index: 100;
+        position: absolute;
+        top: 1.5%;
+        left: 0;
+        visibility: hidden;
+        background: white;
+        justify-self: center;
+        justify-items: center;
+        grid-row-gap: 2em;
+        padding: 3em 0;
+    }
+
+    .mobile_nav_link div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background:#fafafa;
+        width: 80%;;
+        padding-bottom: 0.5em
+    }
+
+    .mobile_nav_link div h3{
+        text-transform: uppercase
+    }
+
+    .mobile_nav_link div .link_image{
+        width:100px;
+        margin-top: -2em
+    }
+
+    .mobile_nav_link div .link_sec{
+        display: flex;
+        flex-direction: row;
+        width: 20%;
+        padding-top: 1em
+    }
+
+    .mobile_nav_link div p{
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+    }
+
+    .mobile_nav_link .arrow{
+        width: 10px;
+        height: 12px;
+        cursor: pointer;
+        margin-left: 0.3em
+    }
+
+    .mobile_nav_link a{
+        color: black;
+        text-decoration: none
+    }
+    /* end */
+
+    #cart{
+        z-index: 1000;
+        right: 5%;
+        top: 1.5%;
+        width: 90%;
+        margin: 0 auto
+    }
+
+    #cart .bottom .two div #productname_incart{
+        font-size: 0.9rem
+    }
+
+    /* top */
+
+    .top{
+        background-image: url('./images/home/image-header.jpg');
+        padding: 0 1.5em;
+    }
+
+    .top .top-nav{
+        display: none
+    }
+
+    .top .mobile-top-nav{
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 0.5em;
+    }
+
+    .top .mobile-top-nav .mobile-top-nav-left img{
+        height: 15px;
+    }
+
+    .top .mobile-top-nav img{
+        cursor: pointer;
+    }
+
+    .top .top-text{
+        justify-content: center;
+        align-items: center;
+        height:88%;
+        padding-top: 0em
+    }
+
+    .top .top-text h3{
+        text-align: center
+    }
+    
+    .top .top-text h1{
+        font-size: 2rem;
+        width: 100%;
+        text-align: center
+    }
+    
+    .top .top-text p{
+        width: 90%;
+        font-size: 1rem;
+        text-align: center
+    }
+
+    /* mid */
+
+    .mid{
+        padding:7em 1.5em;
+        padding-bottom: 2em
+    }
+    
+    .mid .top-mid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 8em
+    }
+
+    .mid .speaker1-mid{
+        margin-top: 4em;
+        grid-template-columns: 1fr;
+        padding: 1em 0 ;
+        padding-bottom: 2em;
+        grid-row-gap: 1.5em
+    }
+
+    .mid .speaker1-mid .speaker1-left{
+        display: flex;
+        align-items: center;
+        padding: 0
+    }
+
+    .mid .speaker1-mid img{
+        width: 60%;
+        height: 100%;
+        margin: 0 auto
+    }
+
+    .mid .speaker1-mid .speaker1-right{
+        align-items: center;
+    }
+    
+    .mid .speaker1-mid .speaker1-right h1{
+        font-size: 2rem;
+        width: 50%;
+        text-align: center;
+        line-height: 40px
+    }
+    
+    .mid .speaker1-mid .speaker1-right p{
+        margin-top: 0.6em;
+        width: 90%;
+        text-align: center
+    }
+    
+    .mid .speaker1-mid .speaker1-right button{
+        width: 45%;
+        height: 50px;
+    }
+
+    .mid .speaker2-mid{
+        margin-top: 4em;
+        height: 50vh;
+        padding-left: 1em;
+    }
+
+    .mid .speaker2-mid h1{
+        font-size: 2rem
+    }
+    
+    .mid .speaker2-mid button{
+        width: 50%;
+        height: 50px;
+        margin-top: 0.5em
+    }
+
+    .mid .earphones{
+        grid-template-columns: 1fr;
+        grid-row-gap: 1.5em
+    }
+
+    .mid .earphones .earphones-right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0em
+    }
+
+    .mid .earphones .earphones-right h1{
+        font-size: 2rem;
+        text-align: center
+    }
+
+    .mid .earphones .earphones-right button{
+        width: 60%
+    }
+
+    /* bringing */
+
+    .bringing{
+        grid-template-columns: 1fr;
+        grid-row-gap:1.5em
+    }
+
+    .bringing div{
+        height: 60vh;
+    }
+
+    .bringing .bringing-right{
+        grid-row: 1
+    }
+
+    .bringing .bringing-left{
+        align-items: center;
+        height: 100%;
+    }
+    
+    .bringing .bringing-left h1{
+        font-size: 1.5rem;
+        text-align: center
+    }
+    
+    .bringing .bringing-left p{
+        width: 100%;
+        text-align: center;
+        line-height: 25px
+    }
+
+    /* footer */
+
+    footer{
+        padding: 4em 1.5em;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1.5em;
+        padding-bottom: 2em;
+        margin-top: 4em;
+        margin-bottom: 0em;
+    }
+
+    footer .foot-item{
+        width: 100%
+    }
+
+    footer #foot-item-1{
+        grid-row: 1;
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer #foot-item-2{
+        grid-row: 2;
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer .foot-item nav{
+        width: 100%
+    }
+
+    footer .foot-item nav ul li{
+        margin-top: 1.3em;
+        width: 100%;
+        margin-left: 0
+    }
+
+    footer .foot-item nav ul li:nth-child(1){
+        margin-top: 0
+    }
+
+    footer .foot-item nav ul li{
+        display: block;
+        text-align: center
+    }
+    
+    footer #foot-item-3 p{
+        width: 100%;
+        line-height: 1.5em;
+        text-align: center
+    }
+
+    footer #foot-item-4{
+        grid-row: 4;
+        grid-column: 1/3;;
+        text-align: center
+    }
+
+    footer #foot-item-4 p{
+        text-align: center
+    }
+
+    footer #foot-item-5{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+}
+
+@media (max-width:767px) and (min-width:700px){
+
+    .mobile_nav_link{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 40vh;
+        width: 100%;
+        z-index: 10000;
+        position: absolute;
+        top: 1.4%;
+        left: 0;
+    }
+
+    .top{
+        padding: 0 3em;
+        margin-bottom: 4em
+    }
+
+    .mid{
+        padding:3em;
+        padding-bottom: 2em
+    }
+
+    .mid .top-mid{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1em
+    }
+
+    footer{
+        padding: 4em 3em;
+    }
+
+    .mid .earphones .earphones-right button{
+        width: 40%;
+        height: 50px;
+    }
+}
+
+@media (max-width:1050px) and (min-width:768px){
+
+    #cart{
+        z-index: 1000;
+        right: 4%;
+        top: 2%;
+        background: #fff;
+        position: absolute;;
+        width: 50%;
+    }
+
+    .top{
+        padding-left: 3em;
+        padding-right: 3em
+    }
+
+    .top .top-nav{
+        padding-left: 10px;
+        padding-right: 10px
+    }
+
+    .top .top-nav .top-nav-left img{
+        height: 20px;
+    }
+
+    .top .top-nav .top-nav-center nav ul li{
+        margin-left: 1em;
+        margin-right: 1em;
+        font-size: 0.75rem
+    }
+
+    .top-nav-right button{
+        height: 35px;
+        width: 80px;
+    }
+
+    .top .top-text h3{
+        font-size: 1rem;
+        letter-spacing: 0.5em;
+    }
+    
+    .top .top-text h1{
+        font-size: 2.5rem;
+        width: 50%
+    }
+    
+    .top .top-text p{
+        width: 45%;
+        line-height: 20px
+    }
+
+    .mid{
+        padding-left: 3em;
+        padding-right: 3em
+    }
+
+    .mid .speaker1-mid{
+        padding: 0 2em;
+        padding-right: 0;
+        grid-column-gap: 1.5em
+    }
+    
+    .mid .speaker1-mid .speaker1-right p{
+        width: 100%
+    }
+    
+    .mid .speaker1-mid .speaker1-right button{
+        width: 60%;
+        height: 50px;
+        border-radius: 5px;
+        margin-top: 1em;
+        cursor: pointer;
+    }
+    
+    .mid .earphones .earphones-right button{    
+        width: 150px;
+        height: 40px;
+    }
+
+    .bringing{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 4em;
+        grid-column-gap: 1em
+    }
+
+    .bringing .bringing-left h1{
+        font-size: 2rem;
+    }
+    
+    .bringing .bringing-left p{
+        width: 100%;
+        margin-top: 1em
+    }
+
+    footer{
+        padding: 3em 0;
+        padding-left: 3em;
+        padding-right: 3em;
+        padding-bottom: 1em;
+        grid-row-gap: 1.5em
+    }
+
+    footer .foot-item nav ul li{
+        margin-left: 1em;
+        font-size: 0.75rem
+    }
+
+    footer #foot-item-3 p{
+        width: 60%;
+        line-height: 1.4em
+    }
+
+
+}
+
+
+@media (max-width:768px) and (height:1024px){
+
+    .top{
+        height: 70vh;
+    }
+    
+    .top .top-text h1{
+        font-size: 3.5rem;
+        width: 100%;
+    }
+    
+    .top .top-text p{
+        width: 65%;
+        font-size: 1.3rem;
+    }
+
+    .bringing div{
+        height: 50vh;
+    }
+
+}
+
+
+
