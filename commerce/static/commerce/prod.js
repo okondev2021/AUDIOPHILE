@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded',function(){
         const count_of_item = document.querySelector('#number').innerHTML
         // 
         document.querySelector('#number').innerHTML = parseInt(count_of_item) - 1
+        if (document.querySelector('#number').innerHTML < 1){
+            document.querySelector('#number').innerHTML = 1
+        }
         // 
         onClickButton(this.dataset.name)
     })
