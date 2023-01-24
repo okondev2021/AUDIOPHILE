@@ -208,9 +208,8 @@ class audiophile():
     # ADD ITEM TO USERS CART AND REMOVES ITEM
     def addcart(request,name):
         product = Product.objects.get(Product_Name=name)
-        User_cart = User.objects.get(username = request.user)
         user_cart = User.objects.get(username = request.user)
-        Check_cart = User_cart.Cart.all() 
+        Check_cart = user_cart.Cart.all() 
         if product in Check_cart:
             user_cart.Cart.remove(product)
             CartItem.objects.filter(Username = request.user,ProductName = product).delete()
@@ -237,6 +236,7 @@ class audiophile():
         else:
             return JsonResponse({'status':'removed'})
 
+    # gets the number of items in user carts
     @csrf_exempt
     def cart(request):
         try:

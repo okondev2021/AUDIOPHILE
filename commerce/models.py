@@ -34,9 +34,6 @@ class Product(models.Model):
             "Amount":self.Amount
         }
     
-    
-    
-
 class CartItem(models.Model):
     Username = models.ForeignKey('User',on_delete = models.CASCADE,related_name ='usernamecart')
     ProductName = models.ForeignKey('Product',on_delete = models.CASCADE,related_name = 'productcart')
