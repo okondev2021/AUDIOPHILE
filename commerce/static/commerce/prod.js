@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded',function(){
     })
     
     // decrease the number a particular item is added to a cart
-    document.querySelector('#subtract').addEventListener('click',function(){
+    document.querySelector('#subtract').addEventListener('click',function(){k
         // get and decrease the product count
         const count_of_item = document.querySelector('#number').innerHTML
         // 
