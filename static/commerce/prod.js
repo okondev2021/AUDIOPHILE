@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded',function(){
             document.querySelector('#number').innerHTML = 1
         }
         // 
-        if (document.querySelector('#number').innerHTML < 1){
-            document.querySelector('#number').innerHTML = 1
-        } 
+
+
+
         onClickButton(this.dataset.name)
     })
 })
