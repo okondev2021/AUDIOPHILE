@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',function(){
+ document.addEventListener('DOMContentLoaded',function(){
     const btn = document.querySelector('#addtocart').innerHTML
     if (btn === 'ADD TO CART'){
         document.querySelector('#cardadd').style.display = 'none'
