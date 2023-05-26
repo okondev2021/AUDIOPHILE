@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$j82)x6_4g*h^cpq41=ek@e8f-n#k9it_ao$awtg)abyiqpljr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*'] 
 
@@ -55,6 +55,8 @@ MIDDLEWARE = [
 AUTH_USER_MODEL = 'commerce.User'
 
 ROOT_URLCONF = 'audiophile.urls'
+
+LOGIN_URL = '/Login/'
 
 TEMPLATES = [
     {

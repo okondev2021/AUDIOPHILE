@@ -49,6 +49,7 @@
                             <label for="password">Password</label>
                             <input name="password" type="password" placeholder="*******" />
                         </div>
+                        <input type="hidden" name="next" value="{{next}}">
                         <input type="submit" value="login">
                     </form>
                     <p class="new_user">New user? <a href="{% url 'register' %}">Sign Up</a></p>

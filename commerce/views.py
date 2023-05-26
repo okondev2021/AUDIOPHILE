@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Product,User,CartItem
 import json
 import base64
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class audiophile():
@@ -133,26 +134,25 @@ class audiophile():
             }
             return render(request,'commerce/speakers.html',context)
 
+    @login_required
     def product(request,name):
-        if request.user.is_authenticated:
-            product = Product.objects.get(Product_Name = name)
-            other_product = Product.objects.all().exclude(Product_Name = name).order_by('Product_Name')
-            paginator = Paginator(other_product,3)
-            page_number = request.GET.get('page')
-            other_products = paginator.get_page(page_number)
-            User_cart = User.objects.get(username = request.user)
-            cartinfo = CartItem.objects.filter(Username=request.user)
-            Check_cart = User_cart.Cart.all()  
-            if 'removeall' in request.POST:
-                CartItem.objects.filter(Username = request.user).delete()
-                user_name = User.objects.get(username = request.user)
-                user_name.Cart.clear()
-            actual_amount = list()
-            for cartinfos in cartinfo:
-                multiplied_amount = cartinfos.ProductCount * cartinfos.ProductName.Amount
-                actual_amount.append(multiplied_amount)
-        else:
-            return HttpResponseRedirect(reverse('login'))
+        # if request.user.is_authenticated:
+        product = Product.objects.get(Product_Name = name)
+        other_product = Product.objects.all().exclude(Product_Name = name).order_by('Product_Name')
+        paginator = Paginator(other_product,3)
+        page_number = request.GET.get('page')
+        other_products = paginator.get_page(page_number)
+        User_cart = User.objects.get(username = request.user)
+        cartinfo = CartItem.objects.filter(Username=request.user)
+        Check_cart = User_cart.Cart.all()  
+        if 'removeall' in request.POST:
+            CartItem.objects.filter(Username = request.user).delete()
+            user_name = User.objects.get(username = request.user)
+            user_name.Cart.clear()
+        actual_amount = list()
+        for cartinfos in cartinfo:
+            multiplied_amount = cartinfos.ProductCount * cartinfos.ProductName.Amount
+            actual_amount.append(multiplied_amount)
         return render(request,'commerce/product.html',{'product':product,'other_products':other_products,'Check_cart':Check_cart,'cartinfo':cartinfo,'actual_amount':actual_amount,'User_cart':User_cart})
 
     def checkout(request):
@@ -269,10 +269,15 @@ class audiophile():
                 if username == 'Audiophileadmin':
                     return HttpResponseRedirect(reverse('admin_create'))
                 else:
-                    return HttpResponseRedirect(reverse('index'))
+                    next_page = request.POST.get('next')
+                    if next_page:
+                        return HttpResponseRedirect(next_page)
+                    else:
+                        return HttpResponseRedirect(reverse('index'))
             else:
                 messages.info(request,'Invalid credentials')
-        return render(request,'commerce/login.html')
+        next_page = request.GET.get('next', '')
+        return render(request,'commerce/login.html',{'next':next_page})
 
     def register_view(request):
         if request.method == 'POST':
