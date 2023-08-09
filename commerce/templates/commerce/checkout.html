@@ -163,7 +163,7 @@
                 <label class="label_tag" for="">Phone number</label>
                 <label id="label_phone" class="label_right" for="">Phone</label>
               </div>
-              <input data-name="phone" class="input_fields" type="tel" placeholder="+123456789">
+              <input data-name="phone" class="input_fields userField" type="tel" placeholder="+123456789">
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
               <label class="label_tag" for="">Address</label>
               <label id="label_address" class="label_right" >Address</label>
             </div>
-            <input data-name="address" class="input_fields" type="text" placeholder="No 7 close one imutun CDA">
+            <input data-name="address" class="input_fields userField" type="text" placeholder="No 7 close one imutun CDA">
           </div>
           <div class="towinput">
             <div class="form_tag left">
@@ -183,14 +183,14 @@
                 <label class="label_tag" for="">ZIP</label>
                 <label id="label_zip" class="label_right" >ZIP</label>
               </div>
-              <input data-name="zip" class="input_fields" type="number" placeholder="213433">
+              <input data-name="zip" class="input_fields userField" type="number" placeholder="213433">
             </div>
             <div class="form_tag right">
               <div class="label_div">
                 <label class="label_tag" for="">City</label>
                 <label id="label_city" class="label_right" >City</label>
               </div>
-              <input data-name="city" class="input_fields" type="text" placeholder="Lagos">
+              <input data-name="city" class="input_fields userField" type="text" placeholder="Lagos">
             </div>
           </div>
           <div id="country_div" class="towinput">
@@ -199,7 +199,7 @@
                 <label class="label_tag" for="">Country</label>
                 <label id="label_country" class="label_right" >Country</label>
               </div>
-              <input list="countries"  >
+              <input list="countries" class="userField"  >
               <datalist id="countries">
                   <option value="Afghanistan">
                   <option value="Albania">
@@ -407,23 +407,23 @@
           <div style="grid-row-gap: 1em;" class="towinput">
             <div><h3>PAYMENT METHOD</h3></div>
             <div id="radiodiv1" class="radiodiv">
-              <input data-name="emoney" class="payment_option" name="paymenttype" type="radio"><label for="">e-Money</label>
+              <input data-name="emoney" id="radioEmoney" class="payment_option" name="paymenttype" type="radio"><label for="">e-Money</label>
             </div>
             <div id="hidden_section">
               <div id="payment_delivery" class="payment_type">
                 <p>  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
               </div>
               <form id="payment_emoney" class="payment_type">
-                <div class="form_tag right">
-                  <input type="number" placeholder="e-Money number">
+                <div class="form_tag right emoney_field">
+                  <input name="number" type="number" class=" " placeholder="e-Money number">
                 </div>
-                <div class="form_tag right">
-                  <input type="password" placeholder="e-money PIN">
+                <div class="form_tag right emoney_field">
+                  <input data-name="pin" type="password" class="emoneyField" placeholder="e-money PIN">
                 </div>
               </form> 
             </div>
             <div id="radiodiv2" class="radiodiv">
-              <input data-name="delivery" class="payment_option" name="paymenttype" type="radio"><label for="">Cash on Delivery</label>
+              <input data-name="delivery" id="radiocash" class="payment_option" name="paymenttype" type="radio"><label for="">Cash on Delivery</label>
             </div>
           </div>
         </div>
@@ -462,10 +462,78 @@
           <h3 class="checkout_labels">GRAND TOTAL</h3>
           <h3>$<span id="grandtotal"></span></h3>
         </div>
+
         <div id="checkout_end">
+ 
+          
           <div>
-            <button class="pay" type="submit">CONTINUE & PAY</button>
+            <button class="pay" type="submit">
+              <div class="text"><p>CONTINUE & PAY</p></div>
+
+              <div id="delivery_van" class="animation">
+                  <div class="road">
+                      <div id="road_sec1" class="road_sec">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                      <div id="road_sec2" class="road_sec">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
+                  </div>
+  
+                  <div class="transport">
+  
+                      <section class="box">
+                          <div></div>
+                      </section>
+          
+                      <section class="vehicle">
+                          <div class="boot"> 
+                              <div class="door" id="door1"></div>
+                              <div class="door" id="door2"></div>
+                          </div>
+                          <section class="back"></section>
+                          <section class="front">
+                              <div class="connector"></div>
+                              <div class="windscreen"></div>
+                              <div class="light">
+                                  <div class="lights"></div>
+                                  <div class="lights"></div>
+                              </div>
+                          </section>
+                          <div class="ray">
+                              <div class="rays"></div>
+                              <div class="rays"></div>
+                          </div>
+                      </section>
+  
+                  </div>
+              </div>
+            </button>
           </div>
+
+
         </div>
       </div>
     </main>
@@ -497,4 +565,4 @@
     </footer>
   </div>
 </body>
-</html>
+</html>  

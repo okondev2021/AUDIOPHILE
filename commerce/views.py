@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.db import IntegrityError 
 from django.urls import reverse
 from django.http import JsonResponse
 from django.contrib import messages
@@ -289,10 +290,13 @@ class audiophile():
                 password = request.POST['password']
                 confirm = request.POST['confirmpassword']
                 if password == confirm:
-                    user = User.objects.create_user(username=username,email=email,password=password)
-                    user.save()
-                    login(request,user)
-                    return HttpResponseRedirect(reverse('index'))
+                    try:
+                        user = User.objects.create_user(username=username,email=email,password=password)
+                        user.save()
+                        login(request,user)
+                        return HttpResponseRedirect(reverse('index'))
+                    except IntegrityError:
+                        messages.info(request,'This is username is already taken')
                 else:
                     messages.info(request,'Password not the same')
             return render(request,'commerce/register.html')

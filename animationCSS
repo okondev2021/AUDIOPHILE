@@ -1,0 +1,309 @@
+
+
+main .main_right #checkout_end div button{
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s linear;
+    animation: resize 0.5s;
+    animation-play-state: paused;
+}
+
+@keyframes resize {
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(0.94);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+main .main_right #checkout_end div button .text{
+    color: #fff;
+    transition: all 0.5s ease-out;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    position: absolute;
+    text-transform: capitalize;
+}
+
+main .main_right #checkout_end div button .text p{
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* ANIMATION SECTION */
+
+main .main_right #checkout_end div button .animation{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+/* ROAD */
+
+main .main_right #checkout_end div button .animation .road{
+    position: absolute;
+    z-index: -1 ;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    display: flex;
+    overflow: hidden;  
+    transition: 1s ease-out;  
+}
+
+main .main_right #checkout_end div button .animation .road .road_sec{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .main_right #checkout_end div button .animation .road #road_sec1{
+    animation: road1 4s linear infinite paused  ;
+    transform: translateX(100%); 
+}
+
+@keyframes road1 {
+    0%{
+        transform: translateX(100%); 
+    }
+    100%{
+        transform: translateX(-100%); 
+    }
+}
+
+main .main_right #checkout_end div button .animation .road #road_sec2{
+    animation: road2 4s 2s linear infinite paused  ;
+    transform: translateX(100%); 
+}
+
+@keyframes road2 {
+    0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%); 
+      }
+}
+
+main .main_right #checkout_end div button .animation .road .road_sec div{
+    width: 80px;
+    height: 3px;
+    background-color: #fff;
+    margin: 0em 0.7em;
+}
+
+
+    /* TRANSPORT */
+
+main .main_right #checkout_end div button .animation .transport{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    padding: 0em 5em;
+    z-index: 4;
+    background-color: transparent;
+}
+
+
+/* BOX */
+
+main .main_right #checkout_end div button .animation .transport .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-400%);
+    z-index: 4; 
+}
+
+main .main_right #checkout_end div button .animation .transport .reveal{
+    transform: translateX(0%);
+    transition: 0.5s ease-in ;
+}
+
+main .main_right #checkout_end div button .animation .transport .box div{
+    width: 40px;
+    height: 40px;
+    background-color: #e7ca8a;
+    border-radius: 5px;
+}
+
+
+/*   VEHICLE */
+
+main .main_right #checkout_end div button .animation .transport .vehicle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(200%);
+    transition: all 1s ease-in-out;
+    z-index: 10 ;
+}
+
+main .main_right #checkout_end div button .animation .transport .revealtruck{ 
+    transform: translateX(0%);
+    transition: 0.5s ease-in ;
+}
+
+/* BOOT */
+main .main_right #checkout_end div button .animation .transport .vehicle .boot{
+    height: 60px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 20px;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .boot .door{
+    width: 2.5px;
+    background-color: white;
+    height: 100%;
+    border-radius: 0px;
+    margin-right: -2px;
+    border-radius: 20px;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .boot .door:nth-child(1){
+    transform-origin: 0 0;
+    animation: open1 1s 1s paused, close1 1s 1s  paused;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: backwards;
+}
+   
+@keyframes open1 {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(100deg);
+    }
+}
+
+@keyframes close1 {
+    from{
+        transform: rotate(100deg);
+    }
+
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .boot .door:nth-child(2){
+    transform: rotate(0deg);
+    transform-origin: 0% 100%;
+    animation: open2 1s 1s paused, close2 1s 1s paused; 
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: backwards;
+}
+
+@keyframes open2 {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(-100deg);
+    }
+}
+
+@keyframes close2 {
+    from{
+        transform: rotate(-100deg);
+    }
+
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+
+/* BACK */
+main .main_right #checkout_end div button .animation .transport .vehicle .back{
+    background-color: #fff;
+    width: 100px;
+    height: 60px;
+    border-radius: 0px 2px 2px 0px ;
+}
+
+
+/* FRONT */
+main .main_right #checkout_end div button .animation .transport .vehicle .front{
+    height: 60px;
+    background-color: #3967F4;
+    display: flex;
+    border-radius: 0 13px 13px 0;
+    position: relative;
+    z-index: 10
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .front .connector{
+    height: 100%;
+    width: 8px;
+    background-color:#8AADF5;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .front .windscreen{
+    height: 100%;
+    width:18px;
+    background-color: #18283A;
+    border-radius: 0 20px 20px 0;
+    margin-right: 1em;
+    display: flex;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .front .light{
+    position: absolute;
+    height: 100%;
+    right: 0%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .front .light .lights{
+    width: 5px;
+    height: 10px;
+    background-color: #fff;
+    align-self: center;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .ray{ 
+    height: 60px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+}
+
+main .main_right #checkout_end div button .animation .transport .vehicle .ray .rays{
+    width: 50px;
+    height: 20px;
+    background-image: linear-gradient(to right, #aeaa5c, #8d8a56, #474c3b, #273b45);
+    align-self: center;
+    clip-path: polygon(0 59%, 0 39%, 100% 0, 100% 100%);
+    opacity: 0;
+    transition: 0.5s ease-in;
+}
+
